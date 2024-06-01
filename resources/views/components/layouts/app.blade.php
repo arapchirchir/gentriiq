@@ -116,6 +116,9 @@
                                             <li>
                                                 <a href="{{ route('about.us') }}">About us</i></a>
                                             </li>
+                                            <li class="d-none">
+                                                <a href="{{ route('our.blog') }}">Blog</i></a>
+                                            </li>
                                             <li>
                                                 <a href="{{ route('contact.us') }}">Contact us</i></a>
                                             </li>

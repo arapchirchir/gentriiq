@@ -8,11 +8,10 @@
                         <div class="hero-content pb-5 hero-content-3 text-center mb-5">
                             <div class="section-heading">
                                 <h2 class="sec__title">
-                                    Open Your Eyes to the <br />
-                                    Hidden World
+                                    Discover the World with <br> Our Amazing Tours
                                 </h2>
                                 <p class="sec__desc pt-1">
-                                    Book incredible things to do around the world.
+                                    Explore our wide range of destinations and embark on unforgettable adventures.
                                 </p>
                             </div>
                         </div>
@@ -42,7 +41,7 @@
                     <div class="section-heading">
                         <h2 class="sec__title">Popular Destinations</h2>
                         <p class="sec__desc pt-3">
-                            Morbi convallis bibendum urna ut viverra Maecenas quis
+                            Explore some of the best tips from around the city from our partners and friends.
                         </p>
                     </div>
 
@@ -66,12 +65,14 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">New York</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Amboseli
+                                        National Park</a>
                                 </h3>
                                 <p class="card-meta">34 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -87,12 +88,13 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Chicago</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Mt. Kenya</a>
                                 </h3>
                                 <p class="card-meta">13 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -108,12 +110,14 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Hong Kong</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Lake
+                                        Victoria</a>
                                 </h3>
                                 <p class="card-meta">44 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -129,12 +133,14 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Las Vegas</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Lake
+                                        Naivasha</a>
                                 </h3>
                                 <p class="card-meta">22 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -150,12 +156,14 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Miami</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Samburu
+                                        National Reserve</a>
                                 </h3>
                                 <p class="card-meta">54 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -171,12 +179,13 @@
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div>
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">New Jersey</a>
+                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Diani Beach</a>
                                 </h3>
                                 <p class="card-meta">55 Activities</p>
                             </div>
                             <div>
-                                <a href="tour-details.html" class="theme-btn theme-btn-small border-0">Explore <i
+                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
+                                    class="theme-btn theme-btn-small border-0">Explore <i
                                         class="la la-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -209,7 +218,8 @@
                         <div class="info-content">
                             <h4 class="info__title">2,000+ Local Guides</h4>
                             <p class="info__desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                                Discover the best local guides who will make your travel and tours unforgettable.
+                            </p>
                             </p>
                         </div>
                         <!-- end info-content -->
@@ -226,7 +236,9 @@
                         <div class="info-content">
                             <h4 class="info__title">Handcrafted Experiences</h4>
                             <p class="info__desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                            <p class="info__desc">
+                                We offer the best handcrafted experiences that will make your travel unforgettable.
+                            </p>
                             </p>
                         </div>
                         <!-- end info-content -->
@@ -243,7 +255,7 @@
                         <div class="info-content">
                             <h4 class="info__title">95% Happy Travelers</h4>
                             <p class="info__desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                                Our travelers are happy with our services and rated us with 5-star reviews.
                             </p>
                         </div>
                         <!-- end info-content -->
@@ -269,7 +281,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading text-center">
-                        <h2 class="sec__title">Trending Activities</h2>
+                        <h2 class="sec__title">
+                            Our Popular Packages
+                        </h2>
                     </div>
                     <!-- end section-heading -->
                 </div>
@@ -281,14 +295,15 @@
                     <div class="trending-carousel carousel-action">
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img9.jpg') }}" alt="Destination-img" />
                                 </a>
-                                <span class="badge">Bestseller</span>
+                                <span class="badge d-none">Bestseller</span>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Empire State Building Admission</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Empire State
+                                        Building Admission</a>
                                 </h3>
                                 <p class="card-meta">124 E Huron St, New york</p>
                                 <div class="card-rating">
@@ -298,23 +313,24 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- end card-item -->
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img10.jpg') }}" alt="Destination-img" />
                                 </a>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Hut on Blue Water Beach Tour</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Hut on Blue
+                                        Water Beach Tour</a>
                                 </h3>
                                 <p class="card-meta">124 Nevada, Las Vegas</p>
                                 <div class="card-rating">
@@ -324,25 +340,26 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$100.00</span>
-                                        <span class="price__num before-price color-text-3">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,100.00</span>
+                                        <span class="price__num before-price color-text-3">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- end card-item -->
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img11.jpg') }}" alt="Destination-img" />
                                 </a>
-                                <span class="badge">Featured</span>
+                                <span class="badge d-none">Featured</span>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Golden Gate Seaplane Tour</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Golden Gate
+                                        Seaplane Tour</a>
                                 </h3>
                                 <p class="card-meta">124 E Huron St, New york</p>
                                 <div class="card-rating">
@@ -352,23 +369,24 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- end card-item -->
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img12.jpg') }}" alt="Destination-img" />
                                 </a>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Two Hours Guided Horseback Tour</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Two Hours
+                                        Guided Horseback Tour</a>
                                 </h3>
                                 <p class="card-meta">124 E Huron St, New york</p>
                                 <div class="card-rating">
@@ -378,23 +396,24 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- end card-item -->
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img13.jpg') }}" alt="Destination-img" />
                                 </a>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Scuba Diving in Boyton Beach</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Scuba Diving
+                                        in Boyton Beach</a>
                                 </h3>
                                 <p class="card-meta">124 Nevada, New Jersey</p>
                                 <div class="card-rating">
@@ -404,24 +423,25 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- end card-item -->
                         <div class="card-item trending-card mb-0">
                             <div class="card-img">
-                                <a href="tour-details.html" class="d-block">
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                     <img src="{{ asset('assets/images/img14.jpg') }}" alt="Destination-img" />
                                 </a>
-                                <span class="badge">Featured</span>
+                                <span class="badge d-none">Featured</span>
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="tour-details.html">Mangrove Tunnel Kayak Eco Tour</a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Mangrove
+                                        Tunnel Kayak Eco Tour</a>
                                 </h3>
                                 <p class="card-meta">212 Colin road, Canada</p>
                                 <div class="card-rating">
@@ -431,10 +451,10 @@
                                 </div>
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
-                                        <span class="price__num">$124.00</span>
+                                        <span class="price__num">From Ksh. 1,124.00</span>
                                     </p>
-                                    <a href="tour-details.html" class="btn-text">View details<i
-                                            class="la la-angle-right"></i></a>
+                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
+                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -614,7 +634,7 @@
                     <div class="card-item blog-card blog-card-layout-2">
                         <div class="card-img">
                             <img src="{{ asset('assets/images/blog-img.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element">
+                            <div class="post-format icon-element d-none">
                                 <i class="la la-photo"></i>
                             </div>
                         </div>
@@ -624,7 +644,8 @@
                                 <a href="#" class="badge">lifestyle</a>
                             </div>
                             <h3 class="card-title line-height-26">
-                                <a href="blog-single.html">When Traveling Avoid Expensive Hotels & Resorts</a>
+                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">When Traveling Avoid
+                                    Expensive Hotels & Resorts</a>
                             </h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 January, 2020</span>
@@ -669,7 +690,7 @@
                     <div class="card-item blog-card blog-card-layout-2">
                         <div class="card-img">
                             <img src="{{ asset('assets/images/blog-img2.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element">
+                            <div class="post-format icon-element d-none">
                                 <i class="la la-play"></i>
                             </div>
                         </div>
@@ -678,7 +699,9 @@
                                 <a href="#" class="badge">Video</a>
                             </div>
                             <h3 class="card-title line-height-26">
-                                <a href="blog-single.html">My Best Travel Tips: The Ultimate Travel Guide</a>
+                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">My Best Travel Tips:
+                                    The
+                                    Ultimate Travel Guide</a>
                             </h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 February, 2020</span>
@@ -723,7 +746,7 @@
                     <div class="card-item blog-card blog-card-layout-2">
                         <div class="card-img">
                             <img src="{{ asset('assets/images/blog-img3.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element">
+                            <div class="post-format icon-element d-none">
                                 <i class="la la-music"></i>
                             </div>
                         </div>
@@ -732,7 +755,9 @@
                                 <a href="#" class="badge">audio</a>
                             </div>
                             <h3 class="card-title line-height-26">
-                                <a href="blog-single.html">Travel to Popular Sites & Don’t Rule Out Other Locations</a>
+                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">Travel to Popular
+                                    Sites &
+                                    Don’t Rule Out Other Locations</a>
                             </h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 March, 2020</span>
@@ -778,7 +803,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="btn-box text-center pt-4">
-                        <a href="blog-grid.html" class="theme-btn">Read More Post</a>
+                        <a href="{{ route('our.blog') }}" class="theme-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -802,12 +827,12 @@
                             Relax with us. <br />We love Our Clients.
                         </h2>
                         <p class="sec__desc text-white pt-3">
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                            We are here to make your travel experience as seamless as possible.
                         </p>
                     </div>
                     <!-- end section-heading -->
                     <div class="btn-box padding-top-35px">
-                        <a href="become-local-expert.html" class="theme-btn border-0">Become Local Expert</a>
+                        <a href="{{ route('popular.destinations') }}" class="theme-btn border-0">Book now</a>
                     </div>
                 </div>
                 <!-- end col-lg-12 -->
