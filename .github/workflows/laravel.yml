@@ -23,11 +23,11 @@ jobs:
 
             git pull origin master
 
+            cp .envtemp .env
+
+            php artisan migrate --seed
+
             cp .env.example .env
-
-            # php artisan migrate
-
-            # cp .env.example
 
             # Clear cache
             php artisan optimize:clear
