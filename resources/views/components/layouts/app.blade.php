@@ -7,6 +7,26 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description"
+        content="Discover unforgettable safari adventures in East Africa with Gentriiq Safaris, Kenya's fastest-growing safari company. Experience the best wildlife and scenic tours with our expert guides.">
+    <meta name="keywords"
+        content="Gentriiq Safaris, safari, Kenya safari, East Africa safari, wildlife tours, safari adventures, best safari company, safari industry leader,affordable kenya safari packages, kenya safaris, kenya safari tours from nairobi, kenya safari all inclusive packages, africa kenya safaris reviews, kenya safari packages prices, kenya wildlife safari packages, kenya tours">
+    <meta name="author" content="Dennis Kipchumba - Techworld">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gentriiqsafaris.co.ke/">
+    <meta property="og:title" content="Gentriiq Safaris - Leading Safari Company in East Africa">
+    <meta property="og:description"
+        content="Discover unforgettable safari adventures in East Africa with Gentriiq Safaris, Kenya's fastest-growing safari company. Experience the best wildlife and scenic tours with our expert guides.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gentriiqsafaris.co.ke/">
+    <meta property="og:image" content="{{ asset('logo.png') }}">
+    <meta property="og:site_name" content="Gentriiq Safaris">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gentriiq Safaris - Leading Safaris Company in East Africa">
+    <meta name="twitter:description"
+        content="Discover unforgettable safari adventures in East Africa with Gentriiq Safaris, Kenya's fastest-growing safari company. Experience the best wildlife and scenic tours with our expert guides.">
+    <meta name="twitter:image" content="https://gentriiqsafaris.co.ke/images/twitter-image.jpg">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
