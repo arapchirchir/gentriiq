@@ -11,7 +11,7 @@
                                     Discover the World with <br> Our Amazing Tours
                                 </h2>
                                 <p class="sec__desc pt-1">
-                                    Explore our wide range of destinations and embark on unforgettable adventures.
+                                    Be a traveller, not a tourist
                                 </p>
                             </div>
                         </div>
