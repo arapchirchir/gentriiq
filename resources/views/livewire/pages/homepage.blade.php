@@ -341,7 +341,6 @@
                                 <div class="card-price d-flex align-items-center justify-content-between">
                                     <p>
                                         <span class="price__num">From Ksh. 1,100.00</span>
-                                        <span class="price__num before-price color-text-3">From Ksh. 1,124.00</span>
                                     </p>
                                     <a href="{{ route('package.detail', ['package' => 'package']) }}"
                                         class="btn-text">View details<i class="la la-angle-right"></i></a>

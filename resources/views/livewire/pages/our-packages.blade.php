@@ -75,7 +75,7 @@
                         </div>
                         <div class="card-body">
                             <img src="{{ asset('assets/images/royal-caribbean.png') }}" alt=""
-                                class="cruise-logo">
+                                class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">7 Nights Caribbean
                                     Southern Cruise</a>
@@ -91,8 +91,8 @@
                                     <span class="price__from">From</span>
                                     <span class="price__num">$399.00</span>
                                 </p>
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/msc.png') }}" alt="" class="cruise-logo">
+                            <img src="{{ asset('assets/images/msc.png') }}" alt="" class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">5 Nights Bermuda
                                     Cruise</a>
@@ -123,8 +123,8 @@
                                     <span class="price__from">From</span>
                                     <span class="price__num">$379.00</span>
                                 </p>
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/stenaline.jpg') }}" alt="" class="cruise-logo">
+                            <img src="{{ asset('assets/images/stenaline.jpg') }}" alt=""
+                                class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">11 Night Caribbean
                                     Cruise</a>
@@ -157,8 +158,8 @@
                                     <span class="price__num">$599.00</span>
                                 </p>
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                    class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                    class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -173,7 +174,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/carnival.png') }}" alt="" class="cruise-logo">
+                            <img src="{{ asset('assets/images/carnival.png') }}" alt=""
+                                class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">4 Nights Baja Mexico
                                     Cruise</a>
@@ -190,8 +192,8 @@
                                     <span class="price__num">$108.00</span>
                                 </p>
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                    class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                    class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -207,7 +209,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/msc.png') }}" alt="" class="cruise-logo">
+                            <img src="{{ asset('assets/images/msc.png') }}" alt=""
+                                class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">5 Nights Bermuda
                                     Cruise</a>
@@ -224,8 +227,8 @@
                                     <span class="price__num">$379.00</span>
                                 </p>
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                    class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                    class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -240,7 +243,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/msc.png') }}" alt="" class="cruise-logo">
+                            <img src="{{ asset('assets/images/msc.png') }}" alt=""
+                                class="cruise-logo d-none">
                             <h3 class="card-title">
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}">7 - Night Eastern
                                     Caribbean Cruise</a>
@@ -257,8 +261,8 @@
                                     <span class="price__num">$379.00</span>
                                 </p>
                                 <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                    class="btn-text">Read
-                                    details<i class="la la-angle-right"></i></a>
+                                    class="btn-text">View
+                                    <i class="la la-angle-right"></i></a>
                             </div>
                         </div>
                     </div>

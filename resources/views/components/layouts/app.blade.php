@@ -146,6 +146,24 @@
     <div class="">
         {{ $slot }}
     </div>
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="{{ route('homepage') }}" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item"><a href="{{ route('our.packages') }}"
+                        class="nav-link px-2 text-muted">Packages</a></li>
+                <li class="nav-item"><a href="{{ route('popular.destinations') }}"
+                        class="nav-link px-2 text-muted">Destinations</a></li>
+                <li class="nav-item"><a href="{{ route('contact.us') }}" class="nav-link px-2 text-muted">Contact
+                        us</a></li>
+                <li class="nav-item"><a href="{{ route('about.us') }}" class="nav-link px-2 text-muted">About us</a>
+                </li>
+            </ul>
+            <p class="text-center text-muted">© {{ date('Y') }} {{ config('app.name') }} - Designed by <a
+                    href="https://techworld.co.ke" target="_blank">Techworld</a></p>
+        </footer>
+    </div>
     <!-- start back-to-top -->
     <div id="back-to-top">
         <i class="la la-angle-up" title="Go top"></i>
