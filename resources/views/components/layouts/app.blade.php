@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ $title ?? config('app.name') }} {{ ' - ' . config('app.name') }}</title>
     <meta name="description"
         content="Discover unforgettable safari adventures in East Africa with Gentriiq Safaris, Kenya's fastest-growing safari company. Experience the best wildlife and scenic tours with our expert guides.">
     <meta name="keywords"
@@ -15,7 +16,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gentriiqsafaris.co.ke/">
     <meta property="og:title"
-        content="{{ $title ?? config('app.name') . ' - ' . config('app.name') }} - Leading Safari Company in East Africa">
+        content="{{ $title ?? config('app.name') }} {{ config('app.name') }} - Leading Safari Company in East Africa">
     <meta property="og:description"
         content="Discover unforgettable safari adventures in East Africa with Gentriiq Safaris, Kenya's fastest-growing safari company. Experience the best wildlife and scenic tours with our expert guides.">
     <meta property="og:type" content="website">
@@ -34,7 +35,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
-    <title>{{ $title ?? config('app.name') . ' - ' . config('app.name') }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
         rel="stylesheet" />
 
