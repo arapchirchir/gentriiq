@@ -1,0 +1,35 @@
+name: Deployment To Live
+on:
+  push:
+    branches:
+      - development
+      - master
+jobs:
+  build:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing Deployments
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{secrets.KEY}}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd websites/gentriiq
+
+            php artisan down
+
+            git pull origin master
+
+            # cp .envtemp .env
+
+            # php artisan migrate
+
+            # cp .envwellness .env
+
+            # Clear cache
+            php artisan optimize:clear
+
+            php artisan up
