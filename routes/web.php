@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\BlogPosts;
+use App\Livewire\Admin\Bookings;
 use App\Livewire\Admin\Destinations;
 use App\Livewire\Admin\Homepage;
 use App\Livewire\Admin\Packages;
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/packages', Packages::class)->name('admin.packages');
     Route::get('destinations', Destinations::class)->name('admin.destinations');
     Route::get('blog-posts', BlogPosts::class)->name('admin.blog.posts');
+    Route::get('bookings', Bookings::class)->name('bookings');
 });
 
 Route::middleware(['auth'])->group(function () {

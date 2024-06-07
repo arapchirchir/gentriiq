@@ -1147,11 +1147,6 @@ body {
     background-color: #287dfa !important;
 }
 
-.modal-header .btn-close {
-    --bs-btn-close-bg: none !important;
-    outline: none !important;
-}
-
 .section-padding {
     padding-top: 100px;
     padding-bottom: 100px;

@@ -17,7 +17,7 @@
                     <div class="col-lg-6">
                         <div class="breadcrumb-list text-end">
                             <ul class="list-items">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('homepage') }}">Home</a></li>
                                 <li>Pages</li>
                                 <li>Contact us</li>
                             </ul>

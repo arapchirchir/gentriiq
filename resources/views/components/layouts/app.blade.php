@@ -91,10 +91,15 @@
                             <div class="header-top-content">
                                 <div class="header-right header--right d-flex align-items-center justify-content-end">
                                     <div class="header-right-action">
-                                        <a href="#" class="theme-btn theme-btn-small theme-btn-transparent me-1"
-                                            data-bs-toggle="modal" data-bs-target="#signupPopupForm">Sign Up</a>
-                                        <a href="#" class="theme-btn theme-btn-small" data-bs-toggle="modal"
-                                            data-bs-target="#loginPopupForm">Login</a>
+                                        @guest
+                                            <a href="#" class="theme-btn theme-btn-small theme-btn-transparent me-1"
+                                                data-bs-toggle="modal" data-bs-target="#signupPopupForm">Sign Up</a>
+                                            <a href="#" class="theme-btn theme-btn-small" data-bs-toggle="modal"
+                                                data-bs-target="#loginPopupForm">Login</a>
+                                        @endguest
+                                        @auth
+                                            <a href="{{ route('home') }}" class="theme-btn theme-btn-small">Dashboard</a>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>
@@ -109,8 +114,8 @@
                             <div class="menu-wrapper justify-content-between">
                                 <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{ asset('logo.png') }}" alt="logo"
-                                            height="50"></a>
+                                    <a href="{{ route('homepage') }}">
+                                        <img src="{{ asset('logo.png') }}" alt="logo" height="50"></a>
                                     <div class="menu-toggler">
                                         <i class="la la-bars"></i>
                                         <i class="la la-times"></i>
@@ -124,18 +129,52 @@
                                             <li>
                                                 <a href="{{ route('homepage') }}">Home</a>
                                             </li>
-                                            <li>
-                                                <a href="{{ route('our.packages') }}">Packages</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('popular.destinations') }}">Destinations</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('about.us') }}">About us</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('contact.us') }}">Contact us</a>
-                                            </li>
+                                            @guest
+                                                <li>
+                                                    <a href="{{ route('our.packages') }}">Packages</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('popular.destinations') }}">Destinations</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('about.us') }}">About us</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('contact.us') }}">Contact us</a>
+                                                </li>
+                                            @endguest
+
+                                            @role('admin')
+                                                <li>
+                                                    <a href="{{ route('admin.packages') }}">Packages</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.destinations') }}">Destinations</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.blog.posts') }}">Blogs</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('bookings') }}">Bookings</a>
+                                                </li>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-secondary dropdown-toggle rounded-1"
+                                                        type="button" id="accountInfo" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        {{ Auth::user()->name }}
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="accountInfo">
+                                                        <a class="dropdown-item bg-transparent"
+                                                            href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault();document.getElementById('logoutForm').submit();">Logout</a>
+                                                    </div>
+                                                    <form action="{{ route('logout') }}" class="d-none" id="logoutForm"
+                                                        method="POST">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+                                            @endrole
                                         </ul>
                                     </nav>
                                 </div>
@@ -153,10 +192,33 @@
                 </div>
                 <!-- end container-fluid -->
             </div>
-            <!-- end header-menu-wrapper -->
         </header>
     @endif
+
     <div class="">
+        <div class="container-fluid">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="adminSideMenu"
+                aria-labelledby="adminSideMenuLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="adminSideMenuLabel">
+                        Offcanvas
+                    </h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="{{ route('admin.homepage') }}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.destinations') }}">Destinations</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         {{ $slot }}
     </div>
     <div class="container">

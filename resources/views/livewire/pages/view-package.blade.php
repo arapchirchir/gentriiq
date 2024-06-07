@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-list breadcrumb-top-list">
                         <ul class="list-items bg-transparent radius-none p-0">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{route('homepage')}}">Home</a></li>
                             <li>China</li>
                             <li>Great Wall of China, Tour</li>
                         </ul>
