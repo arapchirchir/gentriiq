@@ -68,143 +68,93 @@
     <!-- end cssload-loader -->
     @if (Route::is(['login', 'register', 'password.confirm', 'password.email', 'password.request', 'password.reset']))
     @else
-        <!-- ================================
-            START HEADER AREA
-================================= -->
         <header class="header-area">
-            <div class="container">
-                <div class="header-top-bar">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="header-top-content">
-                                    <div class="header-left">
-                                        <ul class="list-items">
+            <div class="header-top-bar padding-right-100px padding-left-100px">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="header-top-content">
+                                <div class="header-left">
+                                    <ul class="list-items">
+                                        <li>
+                                            <a href="#"><i class="la la-phone me-1"></i>+254 717 838 061</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i
+                                                    class="la la-envelope me-1"></i>info@gentriiqsafaris.co.ke</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="header-top-content">
+                                <div class="header-right header--right d-flex align-items-center justify-content-end">
+                                    <div class="header-right-action">
+                                        <a href="#" class="theme-btn theme-btn-small theme-btn-transparent me-1"
+                                            data-bs-toggle="modal" data-bs-target="#signupPopupForm">Sign Up</a>
+                                        <a href="#" class="theme-btn theme-btn-small" data-bs-toggle="modal"
+                                            data-bs-target="#loginPopupForm">Login</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-menu-wrapper padding-right-100px padding-left-100px">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="menu-wrapper justify-content-between">
+                                <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
+                                <div class="logo">
+                                    <a href="index.html"><img src="{{ asset('logo.png') }}" alt="logo"
+                                            height="50"></a>
+                                    <div class="menu-toggler">
+                                        <i class="la la-bars"></i>
+                                        <i class="la la-times"></i>
+                                    </div>
+                                    <!-- end menu-toggler -->
+                                </div>
+                                <!-- end logo -->
+                                <div class="main-menu-content pe-0 ms-0">
+                                    <nav>
+                                        <ul>
                                             <li>
-                                                <a href="tel:+254715459941">
-                                                    <i class="la la-phone me-1"></i>+254715459941</a>
+                                                <a href="{{ route('homepage') }}">Home</a>
                                             </li>
                                             <li>
-                                                <a href="mailto:info@gentriiqsafaris.co.ke">
-                                                    <i class="la la-envelope me-1"></i>info@gentriiqsafaris.co.ke</a>
+                                                <a href="{{ route('our.packages') }}">Packages</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('popular.destinations') }}">Destinations</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('about.us') }}">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('contact.us') }}">Contact us</a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </nav>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="header-top-content">
-                                    <div
-                                        class="header-right header--right d-flex align-items-center justify-content-end">
-                                        <div class="header-right-action">
-                                            @auth
-                                                <a href="{{ route('home') }}"
-                                                    class="theme-btn theme-btn-small theme-btn-transparent me-1">Dashboard</a>
-                                            @else
-                                                <a href="#"
-                                                    class="theme-btn theme-btn-small theme-btn-transparent me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#signupPopupForm">Sign Up</a>
-                                                <a href="#" class="theme-btn theme-btn-small"
-                                                    data-bs-toggle="modal" data-bs-target="#loginPopupForm">Login</a>
-                                            @endauth
-                                        </div>
-                                    </div>
+                                <!-- end main-menu-content -->
+                                <div class="nav-btn d-none">
+                                    <a href="become-local-expert.html" class="theme-btn">Become Local Expert</a>
                                 </div>
+                                <!-- end nav-btn -->
                             </div>
+                            <!-- end menu-wrapper -->
                         </div>
+                        <!-- end col-lg-12 -->
                     </div>
+                    <!-- end row -->
                 </div>
-                <div class="header-menu-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="menu-wrapper justify-content-between">
-                                    <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
-                                    <div class="logo">
-                                        <a href="{{ url('/') }}">
-                                            <img src="{{ asset('logo.png') }}" alt="logo" height="50" /></a>
-                                        <div class="menu-toggler">
-                                            <i class="la la-bars"></i>
-                                            <i class="la la-times"></i>
-                                        </div>
-                                        <!-- end menu-toggler -->
-                                    </div>
-                                    <!-- end logo -->
-                                    <div class="main-menu-content pe-0 ms-0">
-                                        <nav>
-                                            <ul>
-                                                @auth
-                                                    <li>
-                                                        <a href="{{ route('admin.packages') }}">Packages</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('admin.destinations') }}">Destination</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('admin.blog.posts') }}">Blogs</i></a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a id="navbarDropdown" class="dropdown-toggle" href="#"
-                                                            role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false" v-pre>
-                                                            {{ Auth::user()->name }}
-                                                        </a>
-
-                                                        <ul class="dropdown-menu dropdown-menu-end"
-                                                            aria-labelledby="navbarDropdown">
-                                                            <a class="p-0 px-2" href="{{ route('logout') }}"
-                                                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                                {{ __('Logout') }}
-                                                            </a>
-
-                                                            <form id="logout-form" action="{{ route('logout') }}"
-                                                                method="POST" class="d-none">
-                                                                @csrf
-                                                            </form>
-                                                        </ul>
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <a href="{{ route('homepage') }}">Home</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('our.packages') }}">Packages</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('popular.destinations') }}">Destinations</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('about.us') }}">About us</i></a>
-                                                    </li>
-                                                    <li class="d-none">
-                                                        <a href="{{ route('our.blog') }}">Blog</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('contact.us') }}">Contact us</i></a>
-                                                    </li>
-                                                @endauth
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <!-- end main-menu-content -->
-                                    <div class="nav-btn d-none">
-                                        <a href="#" class="theme-btn">Become Local Expert</a>
-                                    </div>
-                                    <!-- end nav-btn -->
-                                </div>
-                                <!-- end menu-wrapper -->
-                            </div>
-                            <!-- end col-lg-12 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end container-fluid -->
-                </div>
+                <!-- end container-fluid -->
             </div>
             <!-- end header-menu-wrapper -->
         </header>
-        <!-- END HEADER AREA -->
     @endif
     <div class="">
         {{ $slot }}
