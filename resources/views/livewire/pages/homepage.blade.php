@@ -291,9 +291,9 @@
             </div>
             <!-- end row -->
             <div class="row padding-top-50px">
-                <div class="row">
+                <div class="row g-2">
                     @foreach ($packages as $package)
-                        <div class="col-sm-6 col-md-4 col-lg-3 card-item trending-card mb-0 px-0">
+                        <div class="col-sm-6 col-md-4 col-lg-3 card-item trending-card mb-0 px-2">
                             <div class="card-img px-0">
                                 <a href="{{ route('package.detail', ['package' => $package->slug]) }}"
                                     class="d-block">

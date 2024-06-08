@@ -5586,15 +5586,15 @@ body {
 
 /*======= trending-card ========*/
 .trending-card {
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 .trending-card .card-img {
     overflow: hidden;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 .trending-card .card-img .badge {
     top: 20px;
@@ -5616,9 +5616,9 @@ body {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 .trending-card .card-img:hover img {
     -webkit-transform: scale(1.1);
@@ -7371,9 +7371,9 @@ body {
     team-card
  ====================================================*/
 .team-card {
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     padding-top: 20px;
     margin-bottom: 60px;
 }
