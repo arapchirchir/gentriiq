@@ -49,11 +49,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}" /> --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="{{ asset('assets/css/animated-headline.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/flag-icon.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
 </head>
 
 <body>
@@ -426,14 +428,31 @@
 
     {{-- <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script> --}}
     <script src="{{ asset('assets/js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/moment.min.js') }}"></script> --}}
+
+    {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.countTo.min.js') }}"></script>
     <script src="{{ asset('assets/js/animated-headline.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.ripples-min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
+    <script>
+        $(function() {
+            $('input[name="daterangepicker"]').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end
+                    .format('YYYY-MM-DD'));
+            });
+
+            $('#myTable').DataTable();
+        });
+    </script>
 </body>
 
 </html>

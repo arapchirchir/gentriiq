@@ -1,8 +1,4 @@
 /*---------------------------------------------
-Template name:  Trizen - Travel, hotel Booking HTML5 Template
-Version:        3.0.0
-Author:         TechyDevs
-Author Email:   contact@tecydevs.com
 
 [Table of Content]
 
@@ -27,11 +23,8 @@ Author Email:   contact@tecydevs.com
 18: ripple-bg
 19: Ui range slider
 20: Filer uploader
-21: Datetimepicker
 22: Bootstrap select picker
 23: Bootstrap tooltip
-24: Add multiple flight function
-25: multi-flight-remove
 26: Google map
 27: Guests Dropdown
 28: mobile dropdown menu
@@ -69,8 +62,6 @@ Author Email:   contact@tecydevs.com
         var rangeSliderAmount = $('#amount');
         var rangeSliderTwo = $('#slider-range2');
         var rangeSliderAmountTwo = $('#amount2');
-        var dateRangePicker = $('input[name="daterange"]');
-        var dateRangePickerTwo = $('input[name="daterange-single"]');
         var select2Menu = $('.select-contain-select');
         var numberCounter = $('.counter');
         var fullWidthSlider = $('.full-width-slider');
@@ -91,24 +82,24 @@ Author Email:   contact@tecydevs.com
         });
 
         /*=========== Dropdown menu ============*/
-        dropdownMenu.parent('li').children('a').append(function() {
+        dropdownMenu.parent('li').children('a').append(function () {
             return '<button class="drop-menu-toggler" type="button"><i class="la la-angle-down"></i></button>';
         });
 
         /*=========== Dropdown menu ============*/
-        $document.on('click', '.main-menu-content .drop-menu-toggler', function() {
+        $document.on('click', '.main-menu-content .drop-menu-toggler', function () {
             var Self = $(this);
             Self.parent().parent().children('.dropdown-menu-item').toggle();
             return false;
         });
 
         /*=========== Sub menu ============*/
-        $('.main-menu-content .dropdown-menu-item .sub-menu').parent('li').children('a').append(function() {
+        $('.main-menu-content .dropdown-menu-item .sub-menu').parent('li').children('a').append(function () {
             return '<button class="sub-menu-toggler" type="button"><i class="la la-plus"></i></button>';
         });
 
         /*=========== Dropdown menu ============*/
-        $document.on('click', '.main-menu-content .dropdown-menu-item .sub-menu-toggler', function() {
+        $document.on('click', '.main-menu-content .dropdown-menu-item .sub-menu-toggler', function () {
             var Self = $(this);
             Self.parent().parent().children('.sub-menu').toggle();
             return false;
@@ -136,13 +127,13 @@ Author Email:   contact@tecydevs.com
                 $('.dropdown-menu-item').show();
                 $('.sub-menu').show();
                 $('.header-top-bar').show();
-            }else {
+            } else {
                 if (isMenuOpen) {
                     $('.main-menu-content').show();
                     $('.dropdown-menu-item').show();
                     $('.sub-menu').show();
                     $('.header-top-bar').show();
-                }else {
+                } else {
                     $('.main-menu-content').hide();
                     $('.dropdown-menu-item').hide();
                     $('.sub-menu').hide();
@@ -152,7 +143,7 @@ Author Email:   contact@tecydevs.com
         });
 
         /*=========== Navbar offset top ============*/
-        if($(topNav).length) {
+        if ($(topNav).length) {
             var topOfNav = topNav.offsetTop;
         }
 
@@ -181,29 +172,29 @@ Author Email:   contact@tecydevs.com
 
         /*========== Page scroll ==========*/
 
-        scrollLink.on('click',function(e){
+        scrollLink.on('click', function (e) {
             var target = $($(this).attr('href'));
 
             $($dom).animate({
-                scrollTop:target.offset().top
-            },600);
+                scrollTop: target.offset().top
+            }, 600);
 
             $(this).addClass('active');
 
             e.preventDefault();
         });
 
-        function findPosition (){
-            $('.page-scroll').each(function(){
-                if(($(this).offset().top - $(window).scrollTop()) < 20){
+        function findPosition() {
+            $('.page-scroll').each(function () {
+                if (($(this).offset().top - $(window).scrollTop()) < 20) {
                     scrollLink.removeClass('active');
-                    $('#single-content-nav').find('[data-scroll="'+ $(this).attr('id') +'"]').addClass('active');
+                    $('#single-content-nav').find('[data-scroll="' + $(this).attr('id') + '"]').addClass('active');
                 }
             });
         }
 
         /*===== Back to top button ======*/
-        $document.on("click", "#back-to-top", function() {
+        $document.on("click", "#back-to-top", function () {
             $($dom).animate({
                 scrollTop: 0
             }, 800);
@@ -222,21 +213,21 @@ Author Email:   contact@tecydevs.com
                 active: true,
                 margin: 30,
                 navText: ['<i class="la la-angle-left"></i>', '<i class="la la-angle-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 991 up
-                    768 : {
+                    768: {
                         items: 2
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 3
                     },
                     // breakpoint from 1441 up
-                    1441 : {
+                    1441: {
                         items: 4
                     }
                 }
@@ -255,17 +246,17 @@ Author Email:   contact@tecydevs.com
                 active: true,
                 margin: 30,
                 navText: ['<i class="la la-angle-left"></i>', '<i class="la la-angle-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 991 up
-                    768 : {
+                    768: {
                         items: 2
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 3
                     },
                 }
@@ -299,17 +290,17 @@ Author Email:   contact@tecydevs.com
                 active: true,
                 margin: 30,
                 navText: ['<i class="la la-angle-left"></i>', '<i class="la la-angle-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 167 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 768 up
-                    768 : {
+                    768: {
                         items: 2
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 3
                     }
                 }
@@ -327,17 +318,17 @@ Author Email:   contact@tecydevs.com
                 autoplay: false,
                 margin: 30,
                 navText: ['<i class="la la-long-arrow-left"></i>', '<i class="la la-long-arrow-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 768 up
-                    768 : {
+                    768: {
                         items: 2
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 3
                     }
                 }
@@ -366,25 +357,25 @@ Author Email:   contact@tecydevs.com
                 dots: false,
                 smartSpeed: 700,
                 autoplay: true,
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 425 up
-                    425 : {
+                    425: {
                         items: 2
                     },
                     // breakpoint from 480 up
-                    480 : {
+                    480: {
                         items: 2
                     },
                     // breakpoint from 767 up
-                    767 : {
+                    767: {
                         items: 4
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 6
                     }
                 }
@@ -402,13 +393,13 @@ Author Email:   contact@tecydevs.com
                 autoplay: false,
                 margin: 30,
                 navText: ['<i class="la la-angle-left"></i>', '<i class="la la-angle-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 900 up
-                    900 : {
+                    900: {
                         items: 2
                     }
 
@@ -427,17 +418,17 @@ Author Email:   contact@tecydevs.com
                 autoplay: false,
                 margin: 30,
                 navText: ['<i class="la la-long-arrow-left"></i>', '<i class="la la-long-arrow-right"></i>'],
-                responsive : {
+                responsive: {
                     // breakpoint from 0 up
-                    0 : {
+                    0: {
                         items: 1
                     },
                     // breakpoint from 768 up
-                    768 : {
+                    768: {
                         items: 2
                     },
                     // breakpoint from 992 up
-                    992 : {
+                    992: {
                         items: 3
                     }
                 }
@@ -501,14 +492,14 @@ Author Email:   contact@tecydevs.com
                 range: true,
                 min: 0,
                 max: 1000,
-                values: [ 40, 800 ],
-                slide: function( event, ui ) {
-                    $(rangeSliderAmount).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                values: [40, 800],
+                slide: function (event, ui) {
+                    $(rangeSliderAmount).val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
             });
         }
-        $(rangeSliderAmount).val( "$" + $(rangeSlider).slider( "values", 0 ) +
-            " - $" + $(rangeSlider).slider( "values", 1 ) );
+        $(rangeSliderAmount).val("$" + $(rangeSlider).slider("values", 0) +
+            " - $" + $(rangeSlider).slider("values", 1));
 
         /*======= ui price range slider 2 ========*/
         if ($(rangeSliderTwo).length) {
@@ -516,49 +507,26 @@ Author Email:   contact@tecydevs.com
                 range: true,
                 min: 0,
                 max: 1000,
-                values: [ 40, 800 ],
-                slide: function( event, ui ) {
-                    $(rangeSliderAmountTwo).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                values: [40, 800],
+                slide: function (event, ui) {
+                    $(rangeSliderAmountTwo).val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
             });
         }
 
-        $(rangeSliderAmountTwo).val( "$" + $(rangeSliderTwo).slider( "values", 0 ) +
-            " - $" + $(rangeSliderTwo).slider( "values", 1 ) );
+        $(rangeSliderAmountTwo).val("$" + $(rangeSliderTwo).slider("values", 0) +
+            " - $" + $(rangeSliderTwo).slider("values", 1));
 
+        /*==== select2  =====*/
 
-        /*==== Daterangepicker =====*/
-        if ($(dateRangePicker).length) {
-            $(dateRangePicker).daterangepicker({
-                opens: 'right',
-                locale: {
-                    format: 'DD/MM/YYYY',
-                }
-            });
-        }
-
-        /*==== Daterangepicker =====*/
-        if ($(dateRangePickerTwo).length) {
-            $(dateRangePickerTwo).daterangepicker({
-                singleDatePicker: true,
-                opens: 'right',
-                locale: {
-                    format: 'DD/MM/YYYY',
-                }
-            });
-        }
-
-        
-           /*==== select2  =====*/
-
-           if ($(select2Menu).length) {
+        if ($(select2Menu).length) {
             $(select2Menu).select2({
                 minimumResultsForSearch: Infinity
             });
         }
 
         /*==== counter =====*/
-        if(numberCounter.length) {
+        if (numberCounter.length) {
             numberCounter.countTo({
                 speed: 1200
             });
@@ -569,36 +537,6 @@ Author Email:   contact@tecydevs.com
             $('[data-bs-toggle="tooltip"]').tooltip();
         }
 
-        /*==== When you will click the add another flight btn then this action will be work =====*/
-        $document.on('click', '.add-flight-btn', function () {
-
-            if ( $('.multi-flight-field').length < 3 ) {
-                $('.multi-flight-field:last').clone().insertAfter('.multi-flight-field:last');
-            }
-
-            $(this).closest('.multi-flight-wrap').find('.multi-flight-field:last').children('.multi-flight-delete-wrap').show();
-
-            $('.date-multi-picker').daterangepicker('destroy');
-
-            var i = 0;
-            $('.date-multi-picker').each(function () {
-                var $this = $(this);
-                $this.attr('id', 'date' + i).daterangepicker({
-                    singleDatePicker: true,
-                    opens: 'right',
-                    local: {
-                       format: 'DD/MM/YYYY'
-                    }
-                });
-                i++;
-            });
-
-        });
-
-        /*=========== multi-flight-remove ============*/
-        $document.on('click', '.multi-flight-remove', function() {
-            $('.multi-flight-remove').closest('.multi-flight-wrap').find('.multi-flight-field').not(':first').last().remove();
-        });
 
         /*====  mobile dropdown menu  =====*/
         $document.on('click', '.toggle-menu > li .toggle-menu-icon', function (e) {
@@ -616,17 +554,17 @@ Author Email:   contact@tecydevs.com
         });
 
         /*====== When you click on the outside of dropdown menu item then its will be hide ======*/
-        $document.on('click', function(event){
+        $document.on('click', function (event) {
             var $trigger = $('.dropdown-contain');
-            if($trigger !== event.target && !$trigger.has(event.target).length){
+            if ($trigger !== event.target && !$trigger.has(event.target).length) {
                 $('.dropdown-menu-wrap').slideUp(300);
             }
         });
 
-        $('.progressbar-line').each(function(){
+        $('.progressbar-line').each(function () {
             $(this).find('.progressbar-line-item').animate({
-                width:$(this).attr('data-percent')
-            },6000);
+                width: $(this).attr('data-percent')
+            }, 6000);
         });
 
         if ($(fullWidthSlider).length) {
@@ -639,13 +577,13 @@ Author Email:   contact@tecydevs.com
                 margin: 10,
                 smartSpeed: 500,
                 navText: ['<i class="la la-long-arrow-left"></i>', '<i class="la la-long-arrow-right"></i>'],
-                responsive:{
-                    0:{
-                        items:1,
+                responsive: {
+                    0: {
+                        items: 1,
                         autoplay: true
                     },
-                    576:{
-                        items:2
+                    576: {
+                        items: 2
                     }
                 }
             });

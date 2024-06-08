@@ -8,9 +8,9 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-list breadcrumb-top-list">
                         <ul class="list-items bg-transparent radius-none p-0">
-                            <li><a href="{{route('homepage')}}">Home</a></li>
-                            <li>China</li>
-                            <li>Great Wall of China, Tour</li>
+                            <li><a href="{{ route('homepage') }}">Home</a></li>
+                            <li><a href="{{ route('our.packages') }}">Packages</a></li>
+                            <li>{{ $selected_package->package_name }}</li>
                         </ul>
                     </div>
                     <!-- end breadcrumb-list -->
@@ -29,31 +29,36 @@
     <!-- ================================
     START BREADCRUMB AREA
 ================================= -->
-    <section class="breadcrumb-area bread-bg-2 py-0">
+    <section class="breadcrumb-area py-0"
+        style="background-image: url('{{ asset('storage/' . $selected_package->featured_image) }}')">
         <div class="breadcrumb-wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-btn">
                             <div class="btn-box">
-                                <a class="theme-btn" data-fancybox="video"
-                                    data-src="https://www.youtube.com/watch?v=0GZSfBuhf6Y" data-speed="700">
-                                    <i class="la la-video-camera me-2"></i>Video
-                                </a>
-                                <a class="theme-btn" data-src="{{ asset('assets/images/destination-img.jpg') }}"
-                                    data-fancybox="gallery" data-caption="Showing image - 01" data-speed="700">
-                                    <i class="la la-photo me-2"></i>More Photos
-                                </a>
+                                @if ($selected_package->video)
+                                    <a class="theme-btn" data-fancybox="video"
+                                        data-src="https://www.youtube.com/watch?v=0GZSfBuhf6Y" data-speed="700">
+                                        <i class="la la-video-camera me-2"></i>Video
+                                    </a>
+                                @endif
+                                @if (count(json_decode($selected_package->other_images)) > 0)
+                                    <a class="theme-btn" data-fancybox="gallery"
+                                        data-src="{{ asset('storage/' . $selected_package->featured_image) }}"
+                                        data-caption="Showing image - 01" data-speed="700">
+                                        <i class="la la-image me-2"></i>Photos
+                                    </a>
+                                @endif
                             </div>
-                            <a class="d-none" data-fancybox="gallery"
-                                data-src="{{ asset('assets/images/destination-img2.jpg') }}"
-                                data-caption="Showing image - 02" data-speed="700"></a>
-                            <a class="d-none" data-fancybox="gallery"
-                                data-src="{{ asset('assets/images/destination-img3.jpg') }}"
-                                data-caption="Showing image - 03" data-speed="700"></a>
-                            <a class="d-none" data-fancybox="gallery"
-                                data-src="{{ asset('assets/images/destination-img4.jpg') }}"
-                                data-caption="Showing image - 04" data-speed="700"></a>
+
+                            @if (count(json_decode($selected_package->other_images)) > 0)
+                                @foreach (json_decode($selected_package->other_images) as $image)
+                                    <a class="d-none" data-fancybox="gallery"
+                                        data-src="{{ asset('storage/' . $image) }}" data-caption="Showing image - 02"
+                                        data-speed="700"></a>
+                                @endforeach
+                            @endif
                         </div>
                         <!-- end breadcrumb-btn -->
                     </div>
@@ -94,9 +99,6 @@
                                     <a data-scroll="faq" href="#faq" class="scroll-link">FAQ</a>
                                 </li>
                                 <li>
-                                    <a data-scroll="location-map" href="#location-map" class="scroll-link">Map</a>
-                                </li>
-                                <li>
                                     <a data-scroll="reviews" href="#reviews" class="scroll-link">Reviews</a>
                                 </li>
                             </ul>
@@ -114,10 +116,10 @@
                             <div id="description" class="page-scroll">
                                 <div class="single-content-item pb-4">
                                     <h3 class="title font-size-26">
-                                        3 Days Tour: the Great Wall of China
+                                        {{ $selected_package->package_name }}
                                     </h3>
                                     <div class="d-flex flex-wrap align-items-center pt-2">
-                                        <p class="me-2">Huairou District, China</p>
+                                        <p class="me-2">{{ $selected_package->location }}</p>
                                         <p>
                                             <span class="badge text-bg-warning text-white font-size-16">4.6</span>
                                             <span>(4,209 Reviews)</span>
@@ -137,7 +139,7 @@
                                                     <h3 class="title font-size-15 font-weight-medium">
                                                         Duration
                                                     </h3>
-                                                    <span class="font-size-13">3 Days</span>
+                                                    <span class="font-size-13">{{ $selected_package->duration }}</span>
                                                 </div>
                                             </div>
                                             <!-- end single-tour-feature -->
@@ -152,7 +154,7 @@
                                                     <h3 class="title font-size-15 font-weight-medium">
                                                         Group Size
                                                     </h3>
-                                                    <span class="font-size-13">30 People</span>
+                                                    <span class="font-size-13">Per person</span>
                                                 </div>
                                             </div>
                                             <!-- end single-tour-feature -->
@@ -173,7 +175,7 @@
                                             <!-- end single-tour-feature -->
                                         </div>
                                         <!-- end col-lg-4 -->
-                                        <div class="col-lg-4 responsive-column">
+                                        <div class="col-lg-4 responsive-column d-none">
                                             <div class="single-tour-feature d-flex align-items-center mb-3">
                                                 <div class="single-feature-icon icon-element ms-0 flex-shrink-0 me-3">
                                                     <i class="la la-calendar"></i>
@@ -188,7 +190,7 @@
                                             <!-- end single-tour-feature -->
                                         </div>
                                         <!-- end col-lg-4 -->
-                                        <div class="col-lg-4 responsive-column">
+                                        <div class="col-lg-4 responsive-column d-none">
                                             <div class="single-tour-feature d-flex align-items-center mb-3">
                                                 <div class="single-feature-icon icon-element ms-0 flex-shrink-0 me-3">
                                                     <i class="la la-user"></i>
@@ -226,15 +228,9 @@
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Description</h3>
                                     <p class="py-3">
-                                        Per consequat adolescens ex, cu nibh commune temporibus
-                                        vim, ad sumo viris eloquentiam sed. Mea appareat
-                                        omittantur eloquentiam ad, nam ei quas oportere
-                                        democritum. Prima causae admodum id est, ei timeam
-                                        inimicus sed. Sit an meis aliquam, cetero inermis vel ut.
-                                        An sit illum euismod facilisis, tamquam vulputate
-                                        pertinacia eum at.
+                                        {{ $selected_package->description }}
                                     </p>
-                                    <p class="pb-4">
+                                    <p class="pb-4 d-none">
                                         Cum et probo menandri. Officiis consulatu pro et, ne sea
                                         sale invidunt, sed ut sint blandit efficiendi. Atomorum
                                         explicari eu qui, est enim quaerendum te. Quo harum viris
@@ -330,7 +326,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end description -->
-                            <div id="itinerary" class="page-scroll">
+                            <div id="itinerary" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Itinerary</h3>
                                     <div class="accordion accordion-item padding-top-30px" id="accordionExample">
@@ -434,30 +430,20 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end itinerary -->
-                            <div id="photo" class="page-scroll">
+                            <div id="photo" class="page-scroll" wire:ignore>
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
-                                    <h3 class="title font-size-20">Photo</h3>
+                                    <h3 class="title font-size-20">Photos</h3>
                                     <div class="gallery-carousel carousel-action padding-top-30px">
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="{{ asset('assets/images/destination-img2.jpg') }}"
-                                                    alt="Destination-img" />
-                                            </div>
-                                        </div>
-                                        <!-- end card-item -->
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="{{ asset('assets/images/destination-img3.jpg') }}"
-                                                    alt="Destination-img" />
-                                            </div>
-                                        </div>
-                                        <!-- end card-item -->
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="{{ asset('assets/images/destination-img4.jpg') }}"
-                                                    alt="Destination-img" />
-                                            </div>
-                                        </div>
+                                        @if (count(json_decode($selected_package->other_images)) > 0)
+                                            @foreach (json_decode($selected_package->other_images) as $image)
+                                                <div class="card-item mb-0">
+                                                    <div class="card-img">
+                                                        <img src="{{ asset('storage/' . $image) }}"
+                                                            alt="Destination-img" />
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
                                         <!-- end card-item -->
                                     </div>
                                     <!-- end gallery-carousel -->
@@ -466,7 +452,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end photo -->
-                            <div id="faq" class="page-scroll">
+                            <div id="faq" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">FAQ</h3>
                                     <div class="accordion accordion-item padding-top-30px" id="accordionExample2">
@@ -596,19 +582,6 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end faq -->
-                            <div id="location-map" class="page-scroll">
-                                <div class="single-content-item padding-top-40px padding-bottom-40px">
-                                    <h3 class="title font-size-20">Location</h3>
-                                    <div class="gmaps padding-top-30px">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3220582.101712651!2d111.72032468736893!3d37.974802328116944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e4!4m5!1s0x3676dd556edbe6e9%3A0x12fdd98581592320!2sLinfen%2C%20Shanxi%2C%20China!3m2!1d36.088004999999995!2d111.518975!4m5!1s0x35f05296e7142cb9%3A0xb9625620af0fa98a!2sBeijing%2C%20China!3m2!1d39.904199899999995!2d116.40739629999999!5e0!3m2!1sen!2sin!4v1589443024919!5m2!1sen!2sin"
-                                            allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                    </div>
-                                </div>
-                                <!-- end single-content-item -->
-                                <div class="section-block"></div>
-                            </div>
-                            <!-- end location-map -->
                             <div id="reviews" class="page-scroll">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Reviews</h3>
@@ -1072,11 +1045,11 @@
                             <div class="sidebar-widget single-content-widget">
                                 <div class="sidebar-widget-item">
                                     <div class="sidebar-book-title-wrap mb-3">
-                                        <h3>Bestseller</h3>
+                                        <h3 class="d-none">Featured</h3>
                                         <p>
-                                            <span class="text-form">From</span><span
-                                                class="text-value ms-2 me-1">$399.00</span>
-                                            <span class="before-price">$412.00</span>
+                                            <span class="text-form">From</span><span class="text-value ms-2 me-1">Ksh.
+                                                {{ number_format($selected_package->price) }}</span>
+                                            <span class="before-price d-none">$412.00</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1089,7 +1062,7 @@
                                                 <div class="form-group">
                                                     <span class="la la-calendar form-icon"></span>
                                                     <input class="date-range form-control" type="text"
-                                                        name="daterange" />
+                                                        name="daterangepicker" id="dateRange" />
                                                 </div>
                                             </div>
                                         </form>
@@ -1098,44 +1071,45 @@
                                 <!-- end sidebar-widget-item -->
                                 <div class="sidebar-widget-item">
                                     <div class="qty-box mb-2 d-flex align-items-center justify-content-between">
-                                        <label class="font-size-16">Adults <span>Age 18+</span></label>
+                                        <label class="font-size-16">Number of adults</label>
                                         <div class="qtyBtn d-flex align-items-center">
-                                            <div class="qtyDec"><i class="la la-minus"></i></div>
-                                            <input type="text" name="qtyInput" value="0" />
-                                            <div class="qtyInc"><i class="la la-plus"></i></div>
+                                            <div class="qtyDec" wire:click='decrementAdults'><i
+                                                    class="la la-minus"></i></div>
+                                            <input type="text" name="qtyInput" value="0"
+                                                wire:model='adults' />
+                                            <div class="qtyInc" wire:click='incrementAdults'><i
+                                                    class="la la-plus"></i></div>
                                         </div>
                                     </div>
                                     <!-- end qty-box -->
                                     <div class="qty-box mb-2 d-flex align-items-center justify-content-between">
-                                        <label class="font-size-16">Children <span>2-12 years old</span></label>
+                                        <label class="font-size-16">Children</label>
                                         <div class="qtyBtn d-flex align-items-center">
-                                            <div class="qtyDec"><i class="la la-minus"></i></div>
-                                            <input type="text" name="qtyInput" value="0" />
-                                            <div class="qtyInc"><i class="la la-plus"></i></div>
-                                        </div>
-                                    </div>
-                                    <!-- end qty-box -->
-                                    <div class="qty-box mb-2 d-flex align-items-center justify-content-between">
-                                        <label class="font-size-16">Infants <span>0-2 years old</span></label>
-                                        <div class="qtyBtn d-flex align-items-center">
-                                            <div class="qtyDec"><i class="la la-minus"></i></div>
-                                            <input type="text" name="qtyInput" value="0" />
-                                            <div class="qtyInc"><i class="la la-plus"></i></div>
+                                            <div class="qtyDec" wire:click='decrementChildren'>
+                                                <i class="la la-minus"></i>
+                                            </div>
+                                            <input type="text" name="qtyInput" value="0"
+                                                wire:model='children' />
+                                            <div class="qtyInc" wire:click='incrementChildren'>
+                                                <i class="la la-plus"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- end qty-box -->
                                 </div>
                                 <!-- end sidebar-widget-item -->
                                 <div class="btn-box pt-2">
-                                    <a href="tour-booking.html" class="theme-btn text-center w-100 mb-2"><i
-                                            class="la la-shopping-cart me-2 font-size-18"></i>Book
-                                        Now</a>
-                                    <a href="#" class="theme-btn text-center w-100 theme-btn-transparent"><i
-                                            class="la la-heart-o me-2"></i>Add to Wishlist</a>
+                                    <button class="theme-btn text-center w-100 mb-2" wire:click='BookNow'>
+                                        <i class="la la-shopping-cart me-2 font-size-18"></i>
+                                        Book Now
+                                    </button>
+                                    <a href="#"
+                                        class="theme-btn text-center w-100 theme-btn-transparent d-none">
+                                        <i class="la la-heart-o me-2"></i>Add to Wishlist</a>
                                     <div class="d-flex align-items-center justify-content-between pt-2">
                                         <a href="#" class="btn theme-btn-hover-gray font-size-15"
-                                            data-bs-toggle="modal" data-bs-target="#sharePopupForm"><i
-                                                class="la la-share me-1"></i>Share</a>
+                                            data-bs-toggle="modal" data-bs-target="#sharePopupForm">
+                                            <i class="la la-share me-1"></i>Share</a>
                                         <p>
                                             <i class="la la-eye me-1 font-size-15 color-text-2"></i>3456
                                         </p>
@@ -1235,19 +1209,21 @@
                                 <div class="sidebar-list pt-3">
                                     <ul class="list-items">
                                         <li>
-                                            <i class="la la-phone icon-element me-2"></i><a href="#">+ 61 23
-                                                8093 3400</a>
+                                            <i class="la la-phone icon-element me-2"></i>
+                                            <a href="tel:+254 717 838 061">
+                                                +254 717 838 061
+                                            </a>
                                         </li>
                                         <li>
-                                            <i class="la la-envelope icon-element me-2"></i><a
-                                                href="mailto:info@trizen.com">info@trizen.com</a>
+                                            <i class="la la-envelope icon-element me-2"></i>
+                                            <a href="mailto:info@gentriiqsafaris.co.ke">info@gentriiqsafaris.co.ke</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- end sidebar-list -->
                             </div>
                             <!-- end sidebar-widget -->
-                            <div class="sidebar-widget single-content-widget">
+                            <div class="sidebar-widget single-content-widget d-none">
                                 <h3 class="title stroke-shape">Organized by</h3>
                                 <div class="author-content d-flex">
                                     <div class="author-img">
@@ -1288,15 +1264,8 @@
         <!-- end single-content-box -->
     </section>
     <!-- end tour-detail-area -->
-    <!-- ================================
-    END TOUR DETAIL AREA
-================================= -->
 
     <div class="section-block"></div>
-
-    <!-- ================================
-    START RELATE TOUR AREA
-================================= -->
     <section class="related-tour-area section--padding">
         <div class="container">
             <div class="row">
@@ -1309,114 +1278,53 @@
                 <!-- end col-lg-12 -->
             </div>
             <!-- end row -->
-            <div class="row padding-top-50px">
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                <img src="{{ asset('assets/images/img9.jpg') }}" alt="Destination-img" />
-                            </a>
-                            <span class="badge">Bestseller</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}">Empire State Building
-                                    Admission</a>
-                            </h3>
-                            <p class="card-meta">124 E Huron St, New york</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Average</span>
-                                <span class="rating__text">(30 Reviews)</span>
+            @if (isset($related_packages) && count($related_packages) > 0)
+                <div class="row padding-top-50px">
+                    @foreach ($related_packages as $related)
+                        <div class="col-lg-4 responsive-column">
+                            <div class="card-item trending-card">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $related->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $related->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
+                                    <span class="badge">Featured</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $related->slug]) }}">
+                                            {{ $related->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $related->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span
+                                                class="price__num">{{ __('Ksh. ' . number_format($related->price)) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $related->slug]) }}"
+                                            class="btn-text">View
+                                            details<i class="la la-angle-right"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$124.00</span>
-                                </p>
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">View
-                                    details<i class="la la-angle-right"></i></a>
-                            </div>
+                            <!-- end card-item -->
                         </div>
-                    </div>
-                    <!-- end card-item -->
+                    @endforeach
                 </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                <img src="{{ asset('assets/images/img10.jpg') }}" alt="Destination-img" />
-                                <span class="badge badge-ribbon">Save 24%</span>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}">Hut on Blue Water Beach
-                                    Tour</a>
-                            </h3>
-                            <p class="card-meta">124 Nevada, Las Vegas</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Superb</span>
-                                <span class="rating__text">(30 Reviews)</span>
-                            </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$100.00</span>
-                                    <span class="price__num before-price color-text-3">$124.00</span>
-                                </p>
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">View
-                                    details<i class="la la-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                <img src="{{ asset('assets/images/img11.jpg') }}" alt="Destination-img" />
-                            </a>
-                            <span class="badge">Featured</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}">Golden Gate Seaplane
-                                    Tour</a>
-                            </h3>
-                            <p class="card-meta">124 E Huron St, New york</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Good</span>
-                                <span class="rating__text">(30 Reviews)</span>
-                            </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$124.00</span>
-                                </p>
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="btn-text">View
-                                    details<i class="la la-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-            </div>
+            @endif
             <!-- end row -->
         </div>
         <!-- end container -->
     </section>
     <!-- end related-tour-area -->
-    <!-- ================================
-    END RELATE TOUR AREA
-================================= -->
 
-    <!-- ================================
-    START CTA AREA
-================================= -->
     <section class="cta-area subscriber-area section-bg-2 padding-top-60px padding-bottom-60px">
         <div class="container">
             <div class="row align-items-center">
@@ -1458,9 +1366,14 @@
         </div>
         <!-- end container -->
     </section>
-    <!-- end cta-area -->
-    <!-- ================================
-    END CTA AREA
-================================= -->
-
+    <livewire:customers.book-now-modal />
 </div>
+
+<script>
+    document.addEventListener('livewire:init', () => {
+        let daterange = document.getElementById('dateRange');
+        daterange.onchange = () => {
+            @this.set('booking_date', daterange.value);
+        }
+    });
+</script>

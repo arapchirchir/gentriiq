@@ -45,11 +45,12 @@ class AddPackage extends Component
             $this->other_images = array_slice($this->other_images, 0, 5);
         }
         // store the featured image
-        $this->featured_image = $this->featured_image->store('packages');
+        $this->featured_image = $this->featured_image->storeAs('packages', $this->featured_image->hashName(), 'public');
         // store the other images
         $other_images = [];
         foreach ($this->other_images as $image) {
-            $other_images[] = $image->store('packages');
+            $imageName = $image->hashName();
+            $other_images[] = $image->storeAs('packages', $imageName, 'public');
         }
         // create the package
         $package = new ToursPackages();

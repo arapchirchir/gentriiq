@@ -70,7 +70,7 @@
                         <div class="card-img">
                             <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                 <img src="{{ asset('assets/images/cruise-img6.jpg') }}" alt="cruise-img">
-                                <span class="badge">Bestseller</span>
+                                <span class="badge">Featured</span>
                             </a>
                         </div>
                         <div class="card-body">
@@ -205,7 +205,7 @@
                         <div class="card-img">
                             <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
                                 <img src="{{ asset('assets/images/cruise-img7.jpg') }}" alt="cruise-img">
-                                <span class="badge">Bestseller</span>
+                                <span class="badge">Featured</span>
                             </a>
                         </div>
                         <div class="card-body">

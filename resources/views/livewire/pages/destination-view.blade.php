@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-list breadcrumb-top-list">
                         <ul class="list-items bg-transparent radius-none p-0">
-                            <li><a href="{{route('homepage')}}">Home</a></li>
+                            <li><a href="{{ route('homepage') }}">Home</a></li>
                             <li>China</li>
                             <li>Great Wall of China, Tour</li>
                         </ul>
@@ -1060,7 +1060,7 @@
                             <div class="sidebar-widget single-content-widget">
                                 <div class="sidebar-widget-item">
                                     <div class="sidebar-book-title-wrap mb-3">
-                                        <h3>Bestseller</h3>
+                                        <h3>Featured</h3>
                                         <p>
                                             <span class="text-form">From</span><span
                                                 class="text-value ms-2 me-1">$399.00</span>
@@ -1303,7 +1303,7 @@
                             <a href="tour-details.html" class="d-block">
                                 <img src="images/img9.jpg" alt="Destination-img" />
                             </a>
-                            <span class="badge">Bestseller</span>
+                            <span class="badge">Featured</span>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">

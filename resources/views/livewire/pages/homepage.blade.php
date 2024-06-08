@@ -293,170 +293,210 @@
             <div class="row padding-top-50px">
                 <div class="col-lg-12">
                     <div class="trending-carousel carousel-action">
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img9.jpg') }}" alt="Destination-img" />
-                                </a>
-                                <span class="badge d-none">Bestseller</span>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Empire State
-                                        Building Admission</a>
-                                </h3>
-                                <p class="card-meta">124 E Huron St, New york</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
+                        @if ($packages && count($packages) > 0)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[0]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[0]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
+                                    <span class="badge d-none">Featured</span>
                                 </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,124.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[0]->slug]) }}">
+                                            {{ $packages[0]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[0]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[0]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[0]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- end card-item -->
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img10.jpg') }}" alt="Destination-img" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Hut on Blue
-                                        Water Beach Tour</a>
-                                </h3>
-                                <p class="card-meta">124 Nevada, Las Vegas</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
+
+                        @if ($packages && count($packages) > 1)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[1]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[1]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
                                 </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,100.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[1]->slug]) }}">
+                                            {{ $packages[1]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[1]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[1]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[1]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- end card-item -->
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img11.jpg') }}" alt="Destination-img" />
-                                </a>
-                                <span class="badge d-none">Featured</span>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Golden Gate
-                                        Seaplane Tour</a>
-                                </h3>
-                                <p class="card-meta">124 E Huron St, New york</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
+
+                        @if ($packages && count($packages) > 2)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[2]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[2]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
+                                    <span class="badge">Featured</span>
                                 </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,124.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[2]->slug]) }}">
+                                            {{ $packages[2]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[2]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[2]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[2]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- end card-item -->
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img12.jpg') }}" alt="Destination-img" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Two Hours
-                                        Guided Horseback Tour</a>
-                                </h3>
-                                <p class="card-meta">124 E Huron St, New york</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
+                        @if ($packages && count($packages) > 3)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[3]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[3]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
                                 </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,124.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[3]->slug]) }}">
+                                            {{ $packages[3]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[3]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[3]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[3]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- end card-item -->
+                        @endif
+
+                        @if ($packages && count($packages) > 4)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[4]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[4]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[4]->slug]) }}">
+                                            {{ $packages[4]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[4]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[4]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[4]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <!-- end card-item -->
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img13.jpg') }}" alt="Destination-img" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Scuba Diving
-                                        in Boyton Beach</a>
-                                </h3>
-                                <p class="card-meta">124 Nevada, New Jersey</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
+
+                        @if ($packages && count($packages) > 5)
+                            <div class="card-item trending-card mb-0">
+                                <div class="card-img">
+                                    <a href="{{ route('package.detail', ['package' => $packages[5]->slug]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $packages[5]->featured_image) }}"
+                                            alt="Destination-img" />
+                                    </a>
+                                    <span class="badge d-none">Featured</span>
                                 </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,124.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end card-item -->
-                        <div class="card-item trending-card mb-0">
-                            <div class="card-img">
-                                <a href="{{ route('package.detail', ['package' => 'package']) }}" class="d-block">
-                                    <img src="{{ asset('assets/images/img14.jpg') }}" alt="Destination-img" />
-                                </a>
-                                <span class="badge d-none">Featured</span>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}">Mangrove
-                                        Tunnel Kayak Eco Tour</a>
-                                </h3>
-                                <p class="card-meta">212 Colin road, Canada</p>
-                                <div class="card-rating">
-                                    <span class="badge text-white">4.4/5</span>
-                                    <span class="review__text">Average</span>
-                                    <span class="rating__text">(30 Reviews)</span>
-                                </div>
-                                <div class="card-price d-flex align-items-center justify-content-between">
-                                    <p>
-                                        <span class="price__num">From Ksh. 1,124.00</span>
-                                    </p>
-                                    <a href="{{ route('package.detail', ['package' => 'package']) }}"
-                                        class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="{{ route('package.detail', ['package' => $packages[5]->slug]) }}">
+                                            {{ $packages[5]->package_name }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">{{ $packages[5]->location }}</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p>
+                                            <span class="price__num">From Ksh.
+                                                {{ number_format($packages[5]->price) }}</span>
+                                        </p>
+                                        <a href="{{ route('package.detail', ['package' => $packages[5]->slug]) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- end card-item -->
                     </div>
                     <!-- end car-carousel -->

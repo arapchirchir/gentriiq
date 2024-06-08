@@ -1,14 +1,21 @@
 <div class="container-fluid">
     @if (isset($packages) && count($packages) > 0)
         <div class="row">
+            <div class="col-12 mb-3">
+                <div class="d-flex justify-content-end align-items-end">
+                    <button class="btn rounded-1 shadow-none btn-info" data-bs-toggle="modal"
+                        data-bs-target="#addPackage">Add
+                        Package</button>
+                </div>
+            </div>
             @foreach ($packages as $package)
-                <div class="col-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card-item trending-card mb-0">
                         <div class="card-img">
                             <a href="{{ route('package.detail', ['package' => $package->slug]) }}" class="d-block">
                                 <img src="{{ asset('storage/' . $package->featured_image) }}" alt="Destination-img">
                             </a>
-                            <span class="badge d-none">Bestseller</span>
+                            <span class="badge d-none">Featured</span>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">
@@ -59,13 +66,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Optional: Place to the bottom of scripts -->
-    <script>
-        const myModal = new bootstrap.Modal(
-            document.getElementById("addPackage"),
-            options,
-        );
-    </script>
-
 </div>
