@@ -11,7 +11,7 @@ class Homepage extends Component
     #[Title('Homepage')]
     public function render()
     {
-        $packages = ToursPackages::take(6)->get();
+        $packages = ToursPackages::take(8)->get();
         return view('livewire.pages.homepage', compact('packages'));
     }
 }
