@@ -28,12 +28,6 @@
         </div>
     </section>
     <!-- end hero-wrapper -->
-    <!-- END HERO-WRAPPER AREA -->
-
-
-    <!-- ================================
-    START DESTINATION AREA
-================================= -->
     <section class="destination-area padding-top-130px padding-bottom-80px">
         <div class="container">
             <div class="row align-items-center">
@@ -56,156 +50,44 @@
                 </div>
             </div>
             <!-- end row -->
-            <div class="row padding-top-50px">
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img2.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Amboseli
-                                        National Park</a>
-                                </h3>
-                                <p class="card-meta">34 Activities</p>
+            <div class="row padding-top-50px align-items-center">
+                @if (isset($destinations) && count($destinations) > 0)
+                    @foreach ($destinations as $destination)
+                        <div class="col-md-4 col-lg-3 responsive-column h-100">
+                            <div class="card-item destination-card destination--card">
+                                <div class="card-img">
+                                    <img src="{{ asset('storage/' . $destination->leading_image) }}"
+                                        alt="{{ $destination->destination }}" />
+                                </div>
+                                <div class="card-body d-flex align-items-center justify-content-between p-1">
+                                    <div>
+                                        <h3 class="card-title">
+                                            <a href="{{ route('destination.detail', ['slug' => $destination->slug]) }}">
+                                                {{ $destination->destination }}
+                                            </a>
+                                        </h3>
+                                        <p class="card-meta d-none">34 Activities</p>
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('destination.detail', ['slug' => $destination->slug]) }}"
+                                            class="theme-btn theme-btn-small border-0">Explore <i
+                                                class="la la-arrow-right ms-1"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
+                            <!-- end card-item -->
                         </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img3.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Mt. Kenya</a>
-                                </h3>
-                                <p class="card-meta">13 Activities</p>
-                            </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img4.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Lake
-                                        Victoria</a>
-                                </h3>
-                                <p class="card-meta">44 Activities</p>
-                            </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img5.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Lake
-                                        Naivasha</a>
-                                </h3>
-                                <p class="card-meta">22 Activities</p>
-                            </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img7.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Samburu
-                                        National Reserve</a>
-                                </h3>
-                                <p class="card-meta">54 Activities</p>
-                            </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item destination-card destination--card">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/destination-img8.jpg') }}" alt="destination-img" />
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>
-                                <h3 class="card-title">
-                                    <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}">Diani Beach</a>
-                                </h3>
-                                <p class="card-meta">55 Activities</p>
-                            </div>
-                            <div>
-                                <a href="{{ route('destination.detail', ['slug' => 'mt-kenya']) }}"
-                                    class="theme-btn theme-btn-small border-0">Explore <i
-                                        class="la la-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
+                    @endforeach
+                @else
+                    No Destinations added
+                @endif
             </div>
             <!-- end row -->
         </div>
         <!-- end container -->
     </section>
     <!-- end destination-area -->
-    <!-- ================================
-    END DESTINATION AREA
-================================= -->
 
-    <!-- ================================
-    START INFO AREA
-================================= -->
     <section class="info-area padding-bottom-70px">
         <div class="container">
             <div class="row">
@@ -269,13 +151,6 @@
         <!-- end container -->
     </section>
     <!-- end info-area -->
-    <!-- ================================
-    END INFO AREA
-================================= -->
-
-    <!-- ================================
-    START TRENDING AREA
-================================= -->
     <section class="trending-area position-relative section-bg section-padding">
         <div class="container">
             <div class="row">
@@ -295,8 +170,7 @@
                     @foreach ($packages as $package)
                         <div class="col-sm-6 col-md-4 col-lg-3 card-item trending-card mb-0 px-2">
                             <div class="card-img px-0">
-                                <a href="{{ route('package.detail', ['package' => $package->slug]) }}"
-                                    class="d-block">
+                                <a href="{{ route('package.detail', ['package' => $package->slug]) }}" class="d-block">
                                     <img src="{{ asset('storage/' . $package->featured_image) }}"
                                         alt="Destination-img" />
                                 </a>

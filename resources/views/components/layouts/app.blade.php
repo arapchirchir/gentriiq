@@ -70,7 +70,7 @@
     <!-- end cssload-loader -->
     @if (Route::is(['login', 'register', 'password.confirm', 'password.email', 'password.request', 'password.reset']))
     @else
-        <header class="header-area">
+        <header class="header-area shadow mb-2">
             <div class="header-top-bar padding-right-100px padding-left-100px">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -440,6 +440,7 @@
     <script src="{{ asset('assets/js/jquery.ripples-min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 
     <script>
         $(function() {

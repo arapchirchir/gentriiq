@@ -9,7 +9,7 @@
                 </div>
             </div>
             @foreach ($packages as $package)
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-4 col-lg-3">
                     <div class="card-item trending-card mb-0">
                         <div class="card-img">
                             <a href="{{ route('package.detail', ['package' => $package->slug]) }}" class="d-block">
