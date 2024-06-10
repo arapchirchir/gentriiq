@@ -249,7 +249,7 @@
     <!-- end modal-shared -->
     <div class="modal-popup">
         <div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <div>
@@ -265,12 +265,13 @@
                     <div class="modal-body">
                         <div class="contact-form-action">
                             <form method="post">
+                                @csrf
                                 <div class="input-box">
-                                    <label class="label-text">Username</label>
+                                    <label class="label-text">User name</label>
                                     <div class="form-group">
                                         <span class="la la-user form-icon"></span>
                                         <input class="form-control" type="text" name="text"
-                                            placeholder="Type your username" />
+                                            placeholder="Type your name" />
                                     </div>
                                 </div>
                                 <!-- end input-box -->
@@ -302,7 +303,7 @@
                                 </div>
                                 <!-- end input-box -->
                                 <div class="btn-box pt-3 pb-4">
-                                    <button type="button" class="theme-btn w-100">
+                                    <button type="button" class="theme-btn w-100" id="registerAccount">
                                         Register Account
                                     </button>
                                 </div>
@@ -453,6 +454,14 @@
 
             $('#myTable').DataTable();
         });
+
+        let registerAccount = document.getElementById('registerAccount');
+        if (registerAccount) {
+            registerAccount.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('Registering an account will be available soon.');
+            });
+        }
     </script>
 </body>
 
