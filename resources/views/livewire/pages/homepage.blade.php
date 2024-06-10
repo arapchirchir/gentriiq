@@ -373,174 +373,80 @@
             </div>
             <!-- end row -->
             <div class="row padding-top-50px">
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item blog-card blog-card-layout-2">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/blog-img.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element d-none">
-                                <i class="la la-photo"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="post-categories">
-                                <a href="#" class="badge">Travel</a>
-                                <a href="#" class="badge">lifestyle</a>
-                            </div>
-                            <h3 class="card-title line-height-26">
-                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">When Traveling Avoid
-                                    Expensive Hotels & Resorts</a>
-                            </h3>
-                            <p class="card-meta">
-                                <span class="post__date"> 1 January, 2020</span>
-                                <span class="post-dot"></span>
-                                <span class="post__time">5 Mins read</span>
-                            </p>
-                        </div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <div class="author-content d-flex align-items-center">
-                                <div class="author-img">
-                                    <img src="{{ asset('assets/images/small-team1.jpg') }}"
-                                        alt="testimonial image" />
+                @if (isset($news) && count($news) > 0)
+                    @foreach ($news as $news_item)
+                        <div class="col-lg-4 responsive-column">
+                            <div class="card-item blog-card blog-card-layout-2">
+                                <div class="card-img">
+                                    <img src="{{ asset('storage/' . $news_item->image) }}" alt="blog-img" />
+                                    <div class="post-format icon-element d-none">
+                                        <i class="la la-photo"></i>
+                                    </div>
                                 </div>
-                                <div class="author-bio">
-                                    <a href="#" class="author__title">Leroy Bell</a>
+                                <div class="card-body p-2">
+                                    <div class="post-categories">
+                                        @if ($news_item->tags)
+                                            @if (count(json_decode($news_item->tags)) > 1)
+                                                <a href="#"
+                                                    class="badge">{{ json_decode($news_item->tags)[0] }}</a>
+                                                <a href="#"
+                                                    class="badge">{{ json_decode($news_item->tags)[1] }}</a>
+                                            @endif
+                                        @endif
+                                    </div>
+                                    <h3 class="card-title line-height-26">
+                                        <a href="{{ route('blog.detail', ['slug' => $news_item->slug]) }}">
+                                            {{ $news_item->title }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-meta">
+                                        <span class="post__date">
+                                            {{ date('jS M Y ', strtotime($news_item->created_at)) }}</span>
+                                        <span class="post-dot"></span>
+                                        <span class="post__time">5 Mins read</span>
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="post-share">
-                                <ul>
-                                    <li>
-                                        <i class="la la-share icon-element"></i>
-                                        <ul class="post-share-dropdown d-flex align-items-center">
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <div class="author-content d-flex align-items-center">
+                                        <div class="author-img">
+                                            <img src="https://ui-avatars.com/api/?name={{ $news_item->user->name }}&background=random&size=50&color=fff&length=1&font-size=0.33"
+                                                alt="{{ $news_item->user->name }}" />
+                                        </div>
+                                        <div class="author-bio">
+                                            <a href="#" class="author__title">{{ $news_item->user->name }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="post-share">
+                                        <ul>
                                             <li>
-                                                <a href="#"><i class="lab la-facebook-f"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-instagram"></i></a>
+                                                <i class="la la-share icon-element"></i>
+                                                <ul class="post-share-dropdown d-flex align-items-center">
+                                                    <li>
+                                                        <a href="#" onclick="event.preventDefault();">
+                                                            <i class="lab la-facebook-f"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="event.preventDefault();">
+                                                            <i class="lab la-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="event.preventDefault();">
+                                                            <i class="lab la-instagram"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item blog-card blog-card-layout-2">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/blog-img2.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element d-none">
-                                <i class="la la-play"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="post-categories">
-                                <a href="#" class="badge">Video</a>
-                            </div>
-                            <h3 class="card-title line-height-26">
-                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">My Best Travel Tips:
-                                    The
-                                    Ultimate Travel Guide</a>
-                            </h3>
-                            <p class="card-meta">
-                                <span class="post__date"> 1 February, 2020</span>
-                                <span class="post-dot"></span>
-                                <span class="post__time">4 Mins read</span>
-                            </p>
-                        </div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <div class="author-content d-flex align-items-center">
-                                <div class="author-img">
-                                    <img src="{{ asset('assets/images/small-team2.jpg') }}"
-                                        alt="testimonial image" />
-                                </div>
-                                <div class="author-bio">
-                                    <a href="#" class="author__title">Phillip Hunt</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="post-share">
-                                <ul>
-                                    <li>
-                                        <i class="la la-share icon-element"></i>
-                                        <ul class="post-share-dropdown d-flex align-items-center">
-                                            <li>
-                                                <a href="#"><i class="lab la-facebook-f"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-instagram"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                            <!-- end card-item -->
                         </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item blog-card blog-card-layout-2">
-                        <div class="card-img">
-                            <img src="{{ asset('assets/images/blog-img3.jpg') }}" alt="blog-img" />
-                            <div class="post-format icon-element d-none">
-                                <i class="la la-music"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="post-categories">
-                                <a href="#" class="badge">audio</a>
-                            </div>
-                            <h3 class="card-title line-height-26">
-                                <a href="{{ route('blog.detail', ['slug' => 'blog-detail']) }}">Travel to Popular
-                                    Sites &
-                                    Don’t Rule Out Other Locations</a>
-                            </h3>
-                            <p class="card-meta">
-                                <span class="post__date"> 1 March, 2020</span>
-                                <span class="post-dot"></span>
-                                <span class="post__time">3 Mins read</span>
-                            </p>
-                        </div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <div class="author-content d-flex align-items-center">
-                                <div class="author-img">
-                                    <img src="{{ asset('assets/images/small-team3.jpg') }}"
-                                        alt="testimonial image" />
-                                </div>
-                                <div class="author-bio">
-                                    <a href="#" class="author__title">Luke Jacobs</a>
-                                </div>
-                            </div>
-                            <div class="post-share">
-                                <ul>
-                                    <li>
-                                        <i class="la la-share icon-element"></i>
-                                        <ul class="post-share-dropdown d-flex align-items-center">
-                                            <li>
-                                                <a href="#"><i class="lab la-facebook-f"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="lab la-instagram"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
+                        <!-- end col-lg-4 -->
+                    @endforeach
+                @endif
             </div>
             <!-- end row -->
             <div class="row">

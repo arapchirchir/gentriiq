@@ -22,13 +22,6 @@
         <!-- end container -->
     </section>
     <!-- end breadcrumb-top-bar -->
-    <!-- ================================
-    END BREADCRUMB TOP BAR
-================================= -->
-
-    <!-- ================================
-    START BREADCRUMB AREA
-================================= -->
     <section class="breadcrumb-area bread-bg-2 py-0">
         <div class="breadcrumb-wrap">
             <div class="container">
@@ -63,13 +56,6 @@
         <!-- end breadcrumb-wrap -->
     </section>
     <!-- end breadcrumb-area -->
-    <!-- ================================
-    END BREADCRUMB AREA
-================================= -->
-
-    <!-- ================================
-    START TOUR DETAIL AREA
-================================= -->
     <section class="tour-detail-area padding-bottom-90px">
         <div class="single-content-navbar-wrap menu section-bg" id="single-content-navbar">
             <div class="container">

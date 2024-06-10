@@ -5,6 +5,8 @@ namespace App\Livewire\Admin\Packages;
 use App\Models\ToursPackages;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Livewire\Attributes\Title;
 use Livewire\WithFileUploads;
 
@@ -66,5 +68,38 @@ class AddPackage extends Component
         $package->save();
 
         return redirect()->route('admin.packages');
+    }
+
+    function updatedFeaturedImage()
+    {
+        $this->validate([
+            'featured_image' => 'required|image',
+        ]);
+
+
+        $manager = new ImageManager(Driver::class);
+        $image = $manager->read($this->featured_image->getRealPath());
+        $image->resize(1077, 606, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $image->save($this->featured_image->getRealPath());
+    }
+
+    function updatedOtherImages()
+    {
+        $this->validate([
+            'other_images.*' => 'required|image',
+        ]);
+
+        foreach ($this->other_images as $key => $original_image) {
+            $manager = new ImageManager(Driver::class);
+            $image = $manager->read($original_image->getRealPath());
+            $image->resize(1077, 606, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->save($original_image->getRealPath());
+        }
     }
 }

@@ -46,17 +46,17 @@
                                 @if (count(json_decode($selected_package->other_images)) > 0)
                                     <a class="theme-btn" data-fancybox="gallery"
                                         data-src="{{ asset('storage/' . $selected_package->featured_image) }}"
-                                        data-caption="Showing image - 01" data-speed="700">
+                                        data-caption="Featured image" data-speed="700">
                                         <i class="la la-image me-2"></i>Photos
                                     </a>
                                 @endif
                             </div>
 
                             @if (count(json_decode($selected_package->other_images)) > 0)
-                                @foreach (json_decode($selected_package->other_images) as $image)
+                                @foreach (json_decode($selected_package->other_images) as $key => $image)
                                     <a class="d-none" data-fancybox="gallery"
-                                        data-src="{{ asset('storage/' . $image) }}" data-caption="Showing image - 02"
-                                        data-speed="700"></a>
+                                        data-src="{{ asset('storage/' . $image) }}"
+                                        data-caption="Selected image - {{ $key + 1 }}" data-speed="700"></a>
                                 @endforeach
                             @endif
                         </div>
@@ -71,15 +71,8 @@
         <!-- end breadcrumb-wrap -->
     </section>
     <!-- end breadcrumb-area -->
-    <!-- ================================
-    END BREADCRUMB AREA
-================================= -->
-
-    <!-- ================================
-    START TOUR DETAIL AREA
-================================= -->
     <section class="tour-detail-area padding-bottom-90px">
-        <div class="single-content-navbar-wrap menu section-bg" id="single-content-navbar">
+        <div class="single-content-navbar-wrap menu section-bg d-none" id="single-content-navbar">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -712,7 +705,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end reviews -->
-                            <div class="review-box">
+                            <div class="review-box d-none">
                                 <div class="single-content-item padding-top-40px">
                                     <h3 class="title font-size-20">Showing 3 guest reviews</h3>
                                     <div class="comments-list padding-top-50px">
@@ -1291,7 +1284,7 @@
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body px-1">
                                     <h3 class="card-title">
                                         <a href="{{ route('package.detail', ['package' => $related->slug]) }}">
                                             {{ $related->package_name }}

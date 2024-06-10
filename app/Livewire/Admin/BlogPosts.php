@@ -6,6 +6,8 @@ use App\Models\BlogPosts as ModelsBlogPosts;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Livewire\WithFileUploads;
 
 class BlogPosts extends Component
@@ -59,5 +61,16 @@ class BlogPosts extends Component
         } catch (\Throwable $th) {
             DB::rollBack();
         }
+    }
+
+    function updatedImage()
+    {
+        $manager = new ImageManager(Driver::class);
+        $image = $manager->read($this->image->getRealPath());
+        $image->resize(1077, 606, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $image->save($this->image->getRealPath());
     }
 }
