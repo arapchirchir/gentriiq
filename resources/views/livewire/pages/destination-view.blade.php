@@ -9,8 +9,8 @@
                     <div class="breadcrumb-list breadcrumb-top-list">
                         <ul class="list-items bg-transparent radius-none p-0">
                             <li><a href="{{ route('homepage') }}">Home</a></li>
-                            <li>China</li>
-                            <li>Great Wall of China, Tour</li>
+                            <li><a href="{{ route('popular.destinations') }}">Destinations</a></li>
+                            <li>{{ $destination->destination }}</li>
                         </ul>
                     </div>
                     <!-- end breadcrumb-list -->
@@ -22,13 +22,14 @@
         <!-- end container -->
     </section>
     <!-- end breadcrumb-top-bar -->
-    <section class="breadcrumb-area bread-bg-2 py-0">
+    <section class="breadcrumb-area py-0"
+        style="background-image: url('{{ asset('storage/' . $destination->leading_image) }}')">
         <div class="breadcrumb-wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb-btn">
-                            <div class="btn-box">
+                            <div class="btn-box d-none">
                                 <a class="theme-btn" data-fancybox="video"
                                     data-src="https://www.youtube.com/watch?v=0GZSfBuhf6Y" data-speed="700">
                                     <i class="la la-video-camera me-2"></i>Video
@@ -57,38 +58,6 @@
     </section>
     <!-- end breadcrumb-area -->
     <section class="tour-detail-area padding-bottom-90px">
-        <div class="single-content-navbar-wrap menu section-bg" id="single-content-navbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="single-content-nav" id="single-content-nav">
-                            <ul>
-                                <li>
-                                    <a data-scroll="description" href="#description"
-                                        class="scroll-link active">Description</a>
-                                </li>
-                                <li>
-                                    <a data-scroll="itinerary" href="#itinerary" class="scroll-link">Itinerary</a>
-                                </li>
-                                <li>
-                                    <a data-scroll="photo" href="#photo" class="scroll-link">Photo</a>
-                                </li>
-                                <li>
-                                    <a data-scroll="faq" href="#faq" class="scroll-link">FAQ</a>
-                                </li>
-                                <li>
-                                    <a data-scroll="location-map" href="#location-map" class="scroll-link">Map</a>
-                                </li>
-                                <li>
-                                    <a data-scroll="reviews" href="#reviews" class="scroll-link">Reviews</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end single-content-navbar-wrap -->
         <div class="single-content-box">
             <div class="container">
                 <div class="row">
@@ -97,10 +66,10 @@
                             <div id="description" class="page-scroll">
                                 <div class="single-content-item pb-4">
                                     <h3 class="title font-size-26">
-                                        3 Days Tour: the Great Wall of China
+                                        {{ $destination->destination }}
                                     </h3>
                                     <div class="d-flex flex-wrap align-items-center pt-2">
-                                        <p class="me-2">Huairou District, China</p>
+                                        <p class="me-2 d-none">Huairou District, China</p>
                                         <p>
                                             <span class="badge text-bg-warning text-white font-size-16">4.6</span>
                                             <span>(4,209 Reviews)</span>
@@ -109,7 +78,7 @@
                                 </div>
                                 <!-- end single-content-item -->
                                 <div class="section-block"></div>
-                                <div class="single-content-item py-4">
+                                <div class="single-content-item py-4 d-none">
                                     <div class="row">
                                         <div class="col-lg-4 responsive-column">
                                             <div class="single-tour-feature d-flex align-items-center mb-3">
@@ -208,112 +177,15 @@
                                 <div class="section-block"></div>
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Description</h3>
-                                    <p class="py-3">
-                                        Per consequat adolescens ex, cu nibh commune temporibus
-                                        vim, ad sumo viris eloquentiam sed. Mea appareat
-                                        omittantur eloquentiam ad, nam ei quas oportere
-                                        democritum. Prima causae admodum id est, ei timeam
-                                        inimicus sed. Sit an meis aliquam, cetero inermis vel ut.
-                                        An sit illum euismod facilisis, tamquam vulputate
-                                        pertinacia eum at.
-                                    </p>
-                                    <p class="pb-4">
-                                        Cum et probo menandri. Officiis consulatu pro et, ne sea
-                                        sale invidunt, sed ut sint blandit efficiendi. Atomorum
-                                        explicari eu qui, est enim quaerendum te. Quo harum viris
-                                        id. Per ne quando dolore evertitur, pro ad cibo commune.
-                                    </p>
-                                    <h3 class="title font-size-15 font-weight-medium pb-3">
-                                        Highlights
-                                    </h3>
-                                    <div class="row">
-                                        <div class="col-lg-6 responsive-column">
-                                            <ul class="list-items pb-3">
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Dolorem
-                                                    mediocritatem
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Mea
-                                                    appareat
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Prima causae
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Singulis indoctum
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-6 responsive-column">
-                                            <ul class="list-items pb-3">
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Timeam inimicus
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Oportere democritum
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Cetero inermis
-                                                </li>
-                                                <li>
-                                                    <i class="la la-dot-circle text-color me-2"></i>Pertinacia eum
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div>
+                                        {!! $destination->description !!}
                                     </div>
-                                    <!-- end row -->
-                                    <div class="row">
-                                        <div class="col-lg-6 responsive-column">
-                                            <h3 class="title font-size-15 font-weight-medium pb-3">
-                                                Included
-                                            </h3>
-                                            <ul class="list-items">
-                                                <li>
-                                                    <i class="la la-check text-success me-2"></i>Airfare
-                                                </li>
-                                                <li>
-                                                    <i class="la la-check text-success me-2"></i>Local
-                                                    Transportation
-                                                </li>
-                                                <li>
-                                                    <i class="la la-check text-success me-2"></i>Accommodation
-                                                </li>
-                                                <li>
-                                                    <i class="la la-check text-success me-2"></i>Tour
-                                                    Guide
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-6 responsive-column">
-                                            <h3 class="title font-size-15 font-weight-medium pb-3">
-                                                Not Included
-                                            </h3>
-                                            <ul class="list-items">
-                                                <li>
-                                                    <i class="la la-times text-danger me-2"></i>Entrance
-                                                    Fees
-                                                </li>
-                                                <li>
-                                                    <i class="la la-times text-danger me-2"></i>Guide
-                                                    Gratuity
-                                                </li>
-                                                <li>
-                                                    <i class="la la-times text-danger me-2"></i>Lunch
-                                                </li>
-                                                <li>
-                                                    <i class="la la-times text-danger me-2"></i>Dinner
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
                                 </div>
                                 <!-- end single-content-item -->
                                 <div class="section-block"></div>
                             </div>
                             <!-- end description -->
-                            <div id="itinerary" class="page-scroll">
+                            <div id="itinerary" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Itinerary</h3>
                                     <div class="accordion accordion-item padding-top-30px" id="accordionExample">
@@ -418,24 +290,17 @@
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Photo</h3>
                                     <div class="gallery-carousel carousel-action padding-top-30px">
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="images/destination-img2.jpg" alt="Destination-img" />
-                                            </div>
-                                        </div>
-                                        <!-- end card-item -->
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="images/destination-img3.jpg" alt="Destination-img" />
-                                            </div>
-                                        </div>
-                                        <!-- end card-item -->
-                                        <div class="card-item mb-0">
-                                            <div class="card-img">
-                                                <img src="images/destination-img4.jpg" alt="Destination-img" />
-                                            </div>
-                                        </div>
-                                        <!-- end card-item -->
+                                        @if ($destination->other_images)
+                                            @foreach (json_decode($destination->other_images) as $key => $destination_image)
+                                                <div class="card-item mb-0">
+                                                    <div class="card-img">
+                                                        <img src="{{ asset('storage/' . $destination_image) }}"
+                                                            alt="Destination-img - {{ $key + 1 }}" />
+                                                    </div>
+                                                </div>
+                                                <!-- end card-item -->
+                                            @endforeach
+                                        @endif
                                     </div>
                                     <!-- end gallery-carousel -->
                                 </div>
@@ -443,7 +308,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end photo -->
-                            <div id="faq" class="page-scroll">
+                            <div id="faq" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">FAQ</h3>
                                     <div class="accordion accordion-item padding-top-30px" id="accordionExample2">
@@ -573,7 +438,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end faq -->
-                            <div id="location-map" class="page-scroll">
+                            <div id="location-map" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Location</h3>
                                     <div class="gmaps padding-top-30px">
@@ -586,7 +451,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end location-map -->
-                            <div id="reviews" class="page-scroll">
+                            <div id="reviews" class="page-scroll d-none">
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Reviews</h3>
                                     <div class="review-container padding-top-30px">
@@ -716,7 +581,7 @@
                                 <div class="section-block"></div>
                             </div>
                             <!-- end reviews -->
-                            <div class="review-box">
+                            <div class="review-box d-none">
                                 <div class="single-content-item padding-top-40px">
                                     <h3 class="title font-size-20">Showing 3 guest reviews</h3>
                                     <div class="comments-list padding-top-50px">
@@ -1046,16 +911,23 @@
                             <div class="sidebar-widget single-content-widget">
                                 <div class="sidebar-widget-item">
                                     <div class="sidebar-book-title-wrap mb-3">
-                                        <h3>Featured</h3>
-                                        <p>
-                                            <span class="text-form">From</span><span
-                                                class="text-value ms-2 me-1">$399.00</span>
-                                            <span class="before-price">$412.00</span>
+                                        <h3>Available packages</h3>
+                                        <p class="">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="spinner-border text-primary spinner-border-sm" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <span class="mx-2">Coming soon</span>
+                                        </div>
+
+                                        <span class="text-form d-none">From</span><span
+                                            class="text-value ms-2 me-1 d-none">$399.00</span>
+                                        <span class="before-price d-none">$412.00</span>
                                         </p>
                                     </div>
                                 </div>
                                 <!-- end sidebar-widget-item -->
-                                <div class="sidebar-widget-item">
+                                <div class="sidebar-widget-item d-none">
                                     <div class="contact-form-action">
                                         <form action="#">
                                             <div class="input-box">
@@ -1070,7 +942,7 @@
                                     </div>
                                 </div>
                                 <!-- end sidebar-widget-item -->
-                                <div class="sidebar-widget-item">
+                                <div class="sidebar-widget-item d-none">
                                     <div class="qty-box mb-2 d-flex align-items-center justify-content-between">
                                         <label class="font-size-16">Adults <span>Age 18+</span></label>
                                         <div class="qtyBtn d-flex align-items-center">
@@ -1101,15 +973,15 @@
                                 </div>
                                 <!-- end sidebar-widget-item -->
                                 <div class="btn-box pt-2">
-                                    <a href="tour-booking.html" class="theme-btn text-center w-100 mb-2"><i
+                                    <a href="#" class="theme-btn text-center w-100 mb-2"><i
                                             class="la la-shopping-cart me-2 font-size-18"></i>Book
                                         Now</a>
-                                    <a href="#" class="theme-btn text-center w-100 theme-btn-transparent"><i
-                                            class="la la-heart-o me-2"></i>Add to Wishlist</a>
+                                    <a href="#" class="theme-btn text-center w-100 theme-btn-transparent">
+                                        <i class="la la-heart-o me-2"></i>Add to Wishlist</a>
                                     <div class="d-flex align-items-center justify-content-between pt-2">
                                         <a href="#" class="btn theme-btn-hover-gray font-size-15"
-                                            data-bs-toggle="modal" data-bs-target="#sharePopupForm"><i
-                                                class="la la-share me-1"></i>Share</a>
+                                            data-bs-toggle="modal" data-bs-target="#sharePopupForm">
+                                            <i class="la la-share me-1"></i>Share</a>
                                         <p>
                                             <i class="la la-eye me-1 font-size-15 color-text-2"></i>3456
                                         </p>
@@ -1200,7 +1072,7 @@
                                 <!-- end sidebar-list -->
                             </div>
                             <!-- end sidebar-widget -->
-                            <div class="sidebar-widget single-content-widget">
+                            <div class="sidebar-widget single-content-widget d-none">
                                 <h3 class="title stroke-shape">Get a Question?</h3>
                                 <p class="font-size-14 line-height-24">
                                     Do not hesitate to give us a call. We are an expert team and
@@ -1221,7 +1093,7 @@
                                 <!-- end sidebar-list -->
                             </div>
                             <!-- end sidebar-widget -->
-                            <div class="sidebar-widget single-content-widget">
+                            <div class="sidebar-widget single-content-widget d-none">
                                 <h3 class="title stroke-shape">Organized by</h3>
                                 <div class="author-content d-flex">
                                     <div class="author-img">
@@ -1283,97 +1155,44 @@
             </div>
             <!-- end row -->
             <div class="row padding-top-50px">
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="tour-details.html" class="d-block">
-                                <img src="images/img9.jpg" alt="Destination-img" />
-                            </a>
-                            <span class="badge">Featured</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="tour-details.html">Empire State Building Admission</a>
-                            </h3>
-                            <p class="card-meta">124 E Huron St, New york</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Average</span>
-                                <span class="rating__text">(30 Reviews)</span>
+                @if (isset($related_destinations) && count($related_destinations))
+                    @foreach ($related_destinations as $destination_view)
+                        <div class="col-lg-4 responsive-column">
+                            <div class="card-item trending-card">
+                                <div class="card-img">
+                                    <a href="{{ route('destination.detail', $destination_view->slug) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('storage/' . $destination_view->leading_image) }}" />
+                                    </a>
+                                    <span class="badge">Featured</span>
+                                </div>
+                                <div class="card-body p-1">
+                                    <h3 class="card-title">
+                                        <a
+                                            href="{{ route('destination.detail', $destination_view->slug) }}">{{ $destination_view->destination }}</a>
+                                    </h3>
+                                    <p class="card-meta d-none">124 E Huron St, New york</p>
+                                    <div class="card-rating">
+                                        <span class="badge text-white">4.4/5</span>
+                                        <span class="review__text">Average</span>
+                                        <span class="rating__text">(30 Reviews)</span>
+                                    </div>
+                                    <div class="card-price d-flex align-items-center justify-content-between">
+                                        <p class="d-none">
+                                            <span class="price__num">$124.00</span>
+                                        </p>
+                                        <a href="{{ route('destination.detail', $destination_view->slug) }}"
+                                            class="btn-text">View details<i class="la la-angle-right"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$124.00</span>
-                                </p>
-                                <a href="tour-details.html" class="btn-text">View details<i
-                                        class="la la-angle-right"></i></a>
-                            </div>
+                            <!-- end card-item -->
                         </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="tour-details.html" class="d-block">
-                                <img src="images/img10.jpg" alt="Destination-img" />
-                                <span class="badge badge-ribbon">Save 24%</span>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="tour-details.html">Hut on Blue Water Beach Tour</a>
-                            </h3>
-                            <p class="card-meta">124 Nevada, Las Vegas</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Superb</span>
-                                <span class="rating__text">(30 Reviews)</span>
-                            </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$100.00</span>
-                                    <span class="price__num before-price color-text-3">$124.00</span>
-                                </p>
-                                <a href="tour-details.html" class="btn-text">View details<i
-                                        class="la la-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column">
-                    <div class="card-item trending-card">
-                        <div class="card-img">
-                            <a href="tour-details.html" class="d-block">
-                                <img src="images/img11.jpg" alt="Destination-img" />
-                            </a>
-                            <span class="badge">Featured</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="tour-details.html">Golden Gate Seaplane Tour</a>
-                            </h3>
-                            <p class="card-meta">124 E Huron St, New york</p>
-                            <div class="card-rating">
-                                <span class="badge text-white">4.4/5</span>
-                                <span class="review__text">Good</span>
-                                <span class="rating__text">(30 Reviews)</span>
-                            </div>
-                            <div class="card-price d-flex align-items-center justify-content-between">
-                                <p>
-                                    <span class="price__num">$124.00</span>
-                                </p>
-                                <a href="tour-details.html" class="btn-text">View details<i
-                                        class="la la-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card-item -->
-                </div>
-                <!-- end col-lg-4 -->
+                        <!-- end col-lg-4 -->
+                    @endforeach
+                @else
+                    No related destinations found.
+                @endif
             </div>
             <!-- end row -->
         </div>

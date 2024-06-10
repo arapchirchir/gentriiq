@@ -27,7 +27,7 @@ jobs:
 
             cp .envtemp .env
 
-            php artisan migrate:fresh --seed
+            php artisan migrate
 
             cp .env.example .env
 

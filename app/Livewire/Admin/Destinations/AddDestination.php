@@ -6,6 +6,8 @@ use App\Models\TourDestinations;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Livewire\WithFileUploads;
 
 class AddDestination extends Component
@@ -44,7 +46,7 @@ class AddDestination extends Component
             $other_images = [];
             foreach ($this->other_images as $key => $image) {
                 $image_name = $image->hashName();
-                $other_images = $image->storeAs('destinations', $image_name, 'public');
+                $other_images[] = $image->storeAs('destinations', $image_name, 'public');
             }
 
             $destination = new TourDestinations();
@@ -61,6 +63,38 @@ class AddDestination extends Component
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
+        }
+    }
+
+    public function updatedLeadingImage()
+    {
+        $this->validate([
+            'leading_image' => 'required|image',
+        ]);
+
+        $manager = new ImageManager(Driver::class);
+        $image = $manager->read($this->leading_image->getRealPath());
+        $image->resize(1077, 606, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $image->save($this->leading_image->getRealPath());
+    }
+
+    public function updatedOtherImages()
+    {
+        $this->validate([
+            'other_images.*' => 'required|image',
+        ]);
+
+        foreach ($this->other_images as $key => $original_image) {
+            $manager = new ImageManager(Driver::class);
+            $image = $manager->read($original_image->getRealPath());
+            $image->resize(1077, 606, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->save($original_image->getRealPath());
         }
     }
 }

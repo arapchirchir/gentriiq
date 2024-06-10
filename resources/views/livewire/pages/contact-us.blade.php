@@ -59,16 +59,15 @@
                                 <div id="contact-success-message" class="alert alert-success" role="alert">
                                     Thank You! Your message has been sent.
                                 </div>
-                                <form id="contact-form" method="post"
-                                    action="https://techydevs.com/demos/themes/html/trizen-demo/html/php/contact.php"
-                                    class="row">
+                                <form method="post" action="#" class="row" wire:submit.prevent='SubmitMessage'>
                                     <div class="col-lg-6 responsive-column">
                                         <div class="input-box">
                                             <label class="label-text">Your Name</label>
                                             <div class="form-group">
                                                 <span class="la la-user form-icon"></span>
-                                                <input class="form-control" type="text" name="name"
-                                                    placeholder="Your name" />
+                                                <input class="form-control @error('name') is-invalid @enderror"
+                                                    type="text" name="name" placeholder="Your name"
+                                                    wire:model='name' />
                                             </div>
                                         </div>
                                     </div>
@@ -78,8 +77,9 @@
                                             <label class="label-text">Your Email</label>
                                             <div class="form-group">
                                                 <span class="la la-envelope-o form-icon"></span>
-                                                <input class="form-control" type="email" name="email"
-                                                    placeholder="Email address" />
+                                                <input class="form-control @error('email') is-invalid @enderror"
+                                                    type="email" name="email" placeholder="Email address"
+                                                    wire:model='email' />
                                             </div>
                                         </div>
                                     </div>
@@ -89,14 +89,15 @@
                                             <label class="label-text">Message</label>
                                             <div class="form-group">
                                                 <span class="la la-pencil form-icon"></span>
-                                                <textarea class="message-control form-control" name="message" placeholder="Write message"></textarea>
+                                                <textarea class="message-control form-control @error('message') is-invalid @enderror" name="message"
+                                                    placeholder="Write message" wire:model='message'></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- end col-lg-12 -->
                                     <div class="col-lg-12">
                                         <div class="btn-box">
-                                            <button id="send-message-btn" type="submit" class="theme-btn">
+                                            <button type="submit" class="theme-btn" wire:loading.attr='disabled'>
                                                 Send Message
                                             </button>
                                         </div>
