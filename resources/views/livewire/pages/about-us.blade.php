@@ -391,13 +391,6 @@
         <!-- end container -->
     </section>
     <!-- end testimonial-area -->
-    <!-- ================================
-       START TESTIMONIAL AREA
-================================= -->
-
-    <!-- ================================
-    START INFO AREA
-================================= -->
     <section class="info-area padding-top-100px padding-bottom-60px text-center d-none">
         <div class="container">
             <div class="row">
@@ -603,21 +596,14 @@
         <!-- end container -->
     </section>
     <!-- end info-area -->
-    <!-- ================================
-    END INFO AREA
-================================= -->
 
-    <!-- ================================
-    START CTA AREA
-================================= -->
-    <section class="cta-area cta-bg-2 bg-fixed section-padding text-center">
+    <section class="cta-area cta-bg-2 bg-fixed section-padding text-center d-none">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
                         <h2 class="sec__title mb-3 text-white">
-                            Interested in a career <br />
-                            at Trizen.
+                            Interested in joining our team?
                         </h2>
                         <p class="sec__desc text-white">
                             We’re always looking for talented individuals and <br />
