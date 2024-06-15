@@ -398,7 +398,7 @@
     <!-- ================================
     START INFO AREA
 ================================= -->
-    <section class="info-area padding-top-100px padding-bottom-60px text-center">
+    <section class="info-area padding-top-100px padding-bottom-60px text-center d-none">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
