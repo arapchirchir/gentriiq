@@ -23,13 +23,13 @@ jobs:
 
             git pull origin master
 
-            composer update
+            # composer update
 
-            cp .envtemp .env
+            # cp .envtemp .env
 
-            php artisan migrate:fresh --seed
+            # php artisan migrate
 
-            cp .env.example .env
+            # cp .envlive .env
 
             # php artisan storage:link
 

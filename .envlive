@@ -1,8 +1,8 @@
 APP_NAME='Gentriiq Safaris & Tours'
-APP_ENV=local
+APP_ENV=production
 APP_KEY=base64:nalGHozhbS7vtvz3H05d/2b+yOMEhFUiwEf566uomE0=
-APP_DEBUG=true
-APP_URL=https://development.gentriiqsafaris.co.ke/
+APP_DEBUG=false
+APP_URL=https://gentriiqsafaris.co.ke/
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
