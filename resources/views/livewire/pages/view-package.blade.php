@@ -1209,7 +1209,7 @@
                                         </li>
                                         <li>
                                             <i class="la la-envelope icon-element me-2"></i>
-                                            <a href="mailto:info@gentriiqsafaris.co.ke">info@gentriiqsafaris.co.ke</a>
+                                            <a href="mailto:gentriiqtours@gmail.com">gentriiqtours@gmail.com</a>
                                         </li>
                                     </ul>
                                 </div>

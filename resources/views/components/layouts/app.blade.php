@@ -83,7 +83,7 @@
                                         </li>
                                         <li>
                                             <a href="#"><i
-                                                    class="la la-envelope me-1"></i>info@gentriiqsafaris.co.ke</a>
+                                                    class="la la-envelope me-1"></i>gentriiqtours@gmail.com</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -137,8 +137,8 @@
                                     <li>
                                         <i class="la la-envelope-o icon-element"></i>
                                         <h5 class="title font-size-16 pb-1">Email</h5>
-                                        <a href="mailto:info@gentriiqsafaris.co.ke"
-                                            class="map__desc">info@gentriiqsafaris.co.ke</a>
+                                        <a href="mailto:gentriiqtours@gmail.com"
+                                            class="map__desc">gentriiqtours@gmail.com</a>
                                     </li>
                                 </ul>
                                 <ul class="social-profile text-center">

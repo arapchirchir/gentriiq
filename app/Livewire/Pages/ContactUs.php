@@ -37,7 +37,7 @@ class ContactUs extends Component
             'user_message' => $this->message,
         ];
 
-        Mail::to('info@gentriiqsafaris.co.ke')->send(new UserFeedback($feedback));
+        Mail::to('gentriiqtours@gmail.com')->send(new UserFeedback($feedback));
 
         $this->reset();
     }

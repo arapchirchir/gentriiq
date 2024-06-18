@@ -25,7 +25,7 @@ class RolesSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'Admin',
-            'email' => 'info@gentriiqsafaris.co.ke',
+            'email' => 'gentriiqtours@gmail.com',
             'password' => bcrypt('Gentriiq@2024'),
         ]);
 
