@@ -215,14 +215,8 @@
         </svg>
     </section>
     <!-- end trending-area -->
-    <!-- ================================
-    END TRENDING AREA
-================================= -->
 
-    <!-- ================================
-       START TESTIMONIAL AREA
-================================= -->
-    <section class="testimonial-area section-padding">
+    <section class="testimonial-area section-padding d-none">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
