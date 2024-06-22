@@ -166,11 +166,11 @@
             </div>
             <!-- end row -->
             <div class="row padding-top-50px">
-                <div class="row">
+                <div class="row gap-3">
                     @if (isset($packages) && count($packages) > 0)
                         @foreach ($packages as $package)
                             <div class="col-md-4 col-lg-3">
-                                <div class="card-item trending-card mb-0">
+                                <div class="card-item trending-card mb-0 h-100">
                                     <div class="card-img">
                                         <a href="{{ route('package.detail', $package->slug) }}" class="d-block">
                                             <img src="{{ asset('storage/' . $package->featured_image) }}"
