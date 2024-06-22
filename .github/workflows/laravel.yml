@@ -21,15 +21,19 @@ jobs:
 
             php artisan down
 
+            git stash
+
             git pull origin master
 
-            composer update
+            # composer update
 
-            cp .envtemp .env
+            # cp .envtemp .env
 
-            php artisan migrate:fresh --seed
+            # php artisan migrate:fresh --seed
 
-            cp .envlive .env
+            # cp .envlive .env
+
+            git stash pop
 
             # php artisan storage:link
 
