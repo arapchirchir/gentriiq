@@ -31,8 +31,8 @@ Route::get('package/{package}', ViewPackage::class)->name('package.detail');
 Auth::routes();
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', Homepage::class)->name('admin.homepage');
-    Route::get('/packages', Packages::class)->name('admin.packages');
+    Route::get('dashboard', Homepage::class)->name('admin.homepage');
+    Route::get('packages', Packages::class)->name('admin.packages');
     Route::get('destinations', Destinations::class)->name('admin.destinations');
     Route::get('blog-posts', BlogPosts::class)->name('admin.blog.posts');
     Route::get('bookings', Bookings::class)->name('bookings');

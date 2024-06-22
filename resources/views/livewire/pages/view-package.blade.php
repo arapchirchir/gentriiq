@@ -198,7 +198,7 @@
                                             <!-- end single-tour-feature -->
                                         </div>
                                         <!-- end col-lg-4 -->
-                                        <div class="col-lg-4 responsive-column">
+                                        <div class="col-lg-4 responsive-column d-none">
                                             <div class="single-tour-feature d-flex align-items-center mb-3">
                                                 <div class="single-feature-icon icon-element ms-0 flex-shrink-0 me-3">
                                                     <i class="la la-plane"></i>
@@ -221,7 +221,7 @@
                                 <div class="single-content-item padding-top-40px padding-bottom-40px">
                                     <h3 class="title font-size-20">Description</h3>
                                     <p class="py-3">
-                                        {{ $selected_package->description }}
+                                        {!! $selected_package->description !!}
                                     </p>
                                     <p class="pb-4 d-none">
                                         Cum et probo menandri. Officiis consulatu pro et, ne sea
@@ -229,10 +229,10 @@
                                         explicari eu qui, est enim quaerendum te. Quo harum viris
                                         id. Per ne quando dolore evertitur, pro ad cibo commune.
                                     </p>
-                                    <h3 class="title font-size-15 font-weight-medium pb-3">
+                                    <h3 class="title font-size-15 font-weight-medium pb-3 d-none">
                                         Highlights
                                     </h3>
-                                    <div class="row">
+                                    <div class="row d-none">
                                         <div class="col-lg-6 responsive-column">
                                             <ul class="list-items pb-3">
                                                 <li>
@@ -269,7 +269,7 @@
                                         </div>
                                     </div>
                                     <!-- end row -->
-                                    <div class="row">
+                                    <div class="row d-none">
                                         <div class="col-lg-6 responsive-column">
                                             <h3 class="title font-size-15 font-weight-medium pb-3">
                                                 Included
@@ -1040,7 +1040,7 @@
                                     <div class="sidebar-book-title-wrap mb-3">
                                         <h3 class="d-none">Featured</h3>
                                         <p>
-                                            <span class="text-form">From</span><span class="text-value ms-2 me-1">Ksh.
+                                            <span class="text-form">From</span><span class="text-value ms-2 me-1">$.
                                                 {{ number_format($selected_package->price) }}</span>
                                             <span class="before-price d-none">$412.00</span>
                                         </p>
@@ -1299,7 +1299,7 @@
                                     <div class="card-price d-flex align-items-center justify-content-between">
                                         <p>
                                             <span
-                                                class="price__num">{{ __('Ksh. ' . number_format($related->price)) }}</span>
+                                                class="price__num">{{ __('$' . number_format($related->price)) }}</span>
                                         </p>
                                         <a href="{{ route('package.detail', ['package' => $related->slug]) }}"
                                             class="btn-text">View

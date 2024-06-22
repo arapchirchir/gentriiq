@@ -31,7 +31,9 @@
                             </div>
                             <div class="card-price d-flex align-items-center justify-content-between">
                                 <p>
-                                    <span class="price__num">From Ksh. {{ number_format($package->price) }}</span>
+                                    <span class="price__num">From
+                                        {{ $package->price !== null && $package->price !== '' ? number_format((float) $package->price) : '0' }}
+                                        USD</span>
                                 </p>
                                 <a href="{{ route('package.detail', ['package' => $package->slug]) }}"
                                     class="btn-text">View details<i class="la la-angle-right"></i></a>

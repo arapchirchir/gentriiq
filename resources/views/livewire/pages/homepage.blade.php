@@ -192,7 +192,7 @@
                                         </div>
                                         <div class="card-price d-flex align-items-center justify-content-between">
                                             <p>
-                                                <span class="price__num">From Ksh.
+                                                <span class="price__num">From $.
                                                     {{ number_format($package->price) }}</span>
                                             </p>
                                             <a href="{{ route('package.detail', $package->slug) }}"

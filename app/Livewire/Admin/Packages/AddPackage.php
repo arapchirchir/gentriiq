@@ -3,11 +3,10 @@
 namespace App\Livewire\Admin\Packages;
 
 use App\Models\ToursPackages;
-use Livewire\Component;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
-use Livewire\Attributes\Title;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class AddPackage extends Component
@@ -15,13 +14,21 @@ class AddPackage extends Component
     use WithFileUploads;
 
     public $package_name;
+
     public $slug;
+
     public $duration;
+
     public $price;
+
     public $discount = 0;
+
     public $location;
+
     public $featured_image;
+
     public $description;
+
     public $other_images = [];
 
     public function render()
@@ -29,32 +36,31 @@ class AddPackage extends Component
         return view('livewire.admin.packages.add-package');
     }
 
-    function StorePackage()
+    public function StorePackage()
     {
         $this->validate([
-            'package_name' => 'required',
-            'duration' => 'required',
-            'price' => 'required',
-            'discount' => 'required',
+            'package_name' => 'required|string',
+            'duration' => 'required|string',
+            'price' => 'required|numeric',
+            'discount' => 'required|numeric',
             'location' => 'required',
-            'featured_image' => 'required',
+            'featured_image' => 'required|image',
             'description' => 'required',
             'other_images.*' => 'required|image',
         ]);
-        //check if other images is not empty and that the count is less than 5
-        // if more than 5, take only 5 images and store them into storage public folder
-        if (!empty($this->other_images) && count($this->other_images) > 5) {
+
+        if (! empty($this->other_images) && count($this->other_images) > 5) {
             $this->other_images = array_slice($this->other_images, 0, 5);
         }
-        // store the featured image
+
         $this->featured_image = $this->featured_image->storeAs('packages', $this->featured_image->hashName(), 'public');
-        // store the other images
+
         $other_images = [];
         foreach ($this->other_images as $image) {
             $imageName = $image->hashName();
             $other_images[] = $image->storeAs('packages', $imageName, 'public');
         }
-        // create the package
+
         $package = new ToursPackages();
         $package->package_name = $this->package_name;
         $package->slug = Str::slug($this->package_name);
@@ -67,15 +73,15 @@ class AddPackage extends Component
         $package->other_images = json_encode($other_images);
         $package->save();
 
-        return redirect()->route('admin.packages');
+        $this->reset();
+        $this->dispatch('userAlert', 'Package added successfully!');
     }
 
-    function updatedFeaturedImage()
+    public function updatedFeaturedImage()
     {
         $this->validate([
             'featured_image' => 'required|image',
         ]);
-
 
         $manager = new ImageManager(Driver::class);
         $image = $manager->read($this->featured_image->getRealPath());
@@ -83,10 +89,12 @@ class AddPackage extends Component
             $constraint->aspectRatio();
             $constraint->upsize();
         });
+
         $image->save($this->featured_image->getRealPath());
+        // $this->dispatch('userAlert', 'Featured image uploaded successfully!');
     }
 
-    function updatedOtherImages()
+    public function updatedOtherImages()
     {
         $this->validate([
             'other_images.*' => 'required|image',
@@ -100,6 +108,7 @@ class AddPackage extends Component
                 $constraint->upsize();
             });
             $image->save($original_image->getRealPath());
+            // $this->dispatch('userAlert', 'Other image uploaded successfully!');
         }
     }
 }

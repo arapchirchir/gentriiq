@@ -1,4 +1,15 @@
 <div>
+    <div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
     <form wire:submit.prevent='StorePackage' method="post" enctype="multipart/form-data">
         @csrf
         <div class="row g-2">
@@ -38,10 +49,10 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="form-group">
+                <div class="form-group" wire:ignore>
                     <label for="description" class="label-text">Description</label>
-                    <input type="text" class="form-control rounded-1 shadow-none" wire:model='description'
-                        placeholder="Package description">
+                    <textarea type="text" class="form-control rounded-1 shadow-none" placeholder="Package description" id="editor"
+                        wire:ignore></textarea>
                 </div>
             </div>
             <div class="col-md-6">
@@ -94,3 +105,41 @@
         </div>
     </form>
 </div>
+<script>
+    document.addEventListener('livewire:init', () => {
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                    @this.set('description', editor.getData());
+                    console.log(@this.description);
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        Livewire.on('userAlert', () => {
+            // close addPackage modal
+            $('#addPackage').modal('hide');
+
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                text: 'Package added successfully',
+                timeout: 5000,
+            }).show();
+
+            @this.dispatch('packageAdded');
+        });
+
+        Livewire.on('packageError', () => {
+            new Noty({
+                type: 'error',
+                layout: 'topRight',
+                text: 'Package not added',
+                timeout: 5000,
+            }).show();
+        });
+    });
+</script>
