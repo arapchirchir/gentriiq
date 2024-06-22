@@ -166,7 +166,7 @@
             </div>
             <!-- end row -->
             <div class="row padding-top-50px">
-                <div class="row gap-3">
+                <div class="row g-3">
                     @if (isset($packages) && count($packages) > 0)
                         @foreach ($packages as $package)
                             <div class="col-md-4 col-lg-3">
