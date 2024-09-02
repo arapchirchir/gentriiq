@@ -10,28 +10,31 @@
         aria-labelledby="modalTitleId" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">
-                        <div>
-                            <p>Complete booking</p>
-                            <p>{{ $user_booking }}</p>
-                        </div>
-                    </h5>
+                <div class="modal-header d-flex justify-content-center">
+                    <div class="text-center w-100">
+                        <h5 class="modal-title" id="modalTitleId">
+                            <div>
+                                <p class="text-center fw-bolder">Complete booking</p>
+                                <p>{{ $user_booking }}</p>
+                            </div>
+                        </h5>
+                    </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <h5>You have selected {{ $package['package_name'] ?? '' }}</h5>
-                        <p>Package price: {{ $package['price'] ?? '' }}</p>
+                        <h6 class="text-warning fw-bold">You have selected : {{ $package['package_name'] ?? '' }}</h6>
+                        <p class="text-primary">Package price: ${{ $package['price'] ?? '' }}</p>
                         <div class="d-flex justify-content-start align-items-start flex-column mb-3">
-                            <ul class="list-unstyled">
-                                <ol>Children: {{ $children }} </ol>
-                                <ol>Adults: {{ $adults }} </ol>
+                            <ul class="list-unstyled text-primary">
+                                <ol>No of Children : {{ $children }} </ol>
+                                <ol> No of Adults : {{ $adults }} </ol>
                                 <ol>{{ $booking_date }}</ol>
-                                <ol>Checkin: {{ date('jS M Y', strtotime($checkin_date)) }}</ol>
-                                <ol>Checkout: {{ date('jS M Y', strtotime($checkout_date)) }}</ol>
+                                <ol>Checkin : {{ date('jS M Y', strtotime($checkin_date)) }}</ol>
+                                <ol>Checkout : {{ date('jS M Y', strtotime($checkout_date)) }}</ol>
                             </ul>
                         </div>
+
                         <h6>Fill the required fields in the following form</h6>
                         <form wire:submit.prevent='CompleteBooking' method="post">
                             @csrf
@@ -90,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end align-items-end">
-                                <button class="btn rounded-1 btn-success" type="submit">Submit</button>
+                                <button class="theme-btn text-center w-100 mb-2" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -98,10 +101,54 @@
             </div>
         </div>
     </div>
+    <!-- Second Modal -->
+    <div class="modal fade" id="secondModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="secondModalLabel" aria-hidden="true" wire:ignore.self>
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                    <div class="text-center w-100">
+                        <h5 class="modal-title fw-bolder" id="secondModalLabel">Booking Completed</h5>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <p class="text-center">Your booking is complete. You will receive a confirmation email
+                            shortly.</p>
+                        <!-- Display the total price -->
+                        <p class="text-center text-primary fw-bold">Total Cost : $. {{ number_FORMAT($total_price) }}
+                        </p>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+
+                    <button type="button" class="theme-btn text-center w-100 mb-2">
+                        Continue to Payment
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         window.addEventListener('livewire:init', event => {
             Livewire.on('launchModal', () => {
                 $('#launchModal').click();
+            });
+            Livewire.on('launchSecondModal', () => {
+                // Close the first modal
+                $('#openBookingModal').modal('hide');
+
+                setTimeout(() => {
+                    // Show the second modal after a short delay
+                    $('#secondModal').modal('show');
+                }, 500);
             });
         });
     </script>

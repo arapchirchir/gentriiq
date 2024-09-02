@@ -12,7 +12,7 @@ class ViewBookingModal extends Component
     public function open($booking)
     {
         $this->booking = $booking;
-        dd($booking);
+        // dd($booking);
         $this->dispatch('viewBookingModal');
     }
 

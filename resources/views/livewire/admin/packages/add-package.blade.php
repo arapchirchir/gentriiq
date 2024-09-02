@@ -15,7 +15,7 @@
         <div class="row g-2">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="package_name" class="label-text">Package name</label>
+                    <label for="package_name" class="label-text ">Package name</label>
                     <input type="text" class="form-control rounded-1 shadow-none" wire:model='package_name'
                         placeholder="Package name" autofocus>
                 </div>

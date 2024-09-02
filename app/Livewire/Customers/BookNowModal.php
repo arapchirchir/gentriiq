@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Customers;
 
+use App\Mail\BookingConfirmationMail;
+use App\Models\ToursPackages;
 use App\Models\UserBookings;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
+use Illuminate\Support\Facades\Mail;
 
 class BookNowModal extends ModalComponent
 {
@@ -25,9 +28,11 @@ class BookNowModal extends ModalComponent
     public $checkout_date;
     public $trip_preferences;
     public $user_booking;
+    public $total_price=0;
 
     protected $listeners = [
         'openModal' => 'openModal',
+        'launchSecondModal' => 'launchSecondModal',
     ];
 
     public function openModal($data)
@@ -39,11 +44,13 @@ class BookNowModal extends ModalComponent
         $dates = explode(' - ', $this->booking_date);
         $this->checkin_date = $dates[0];
         $this->checkout_date = $dates[1];
+
         $this->dispatch('launchModal');
     }
 
     public function render()
     {
+
         return view('livewire.customers.book-now-modal');
     }
 
@@ -72,12 +79,19 @@ class BookNowModal extends ModalComponent
             $booking->payment_status = 'unpaid';
             $booking->terms_conditions = 'accepted';
             $booking->save();
+            $this->total_price = $booking->calculateTotalPrice();
             DB::commit();
-            $this->user_booking = 'Booking completed successfully';
+            Mail::to($this->email)->send(new BookingConfirmationMail($booking));
+            //    open second modal
+            $this->dispatch('launchSecondModal',['total_price'=>$this->total_price]);
+
+
+
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollBack();
             $this->user_booking = $th->getMessage();
         }
     }
+
 }
