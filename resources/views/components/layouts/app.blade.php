@@ -248,6 +248,14 @@
     <div id="back-to-top">
         <i class="la la-angle-up" title="Go top"></i>
     </div>
+    <div id="whatsapp" class="fixed-bottom p-2 d-flex align-items-center">
+        <a href="https://wa.me/254717838061?text=Hello%2C%20I%27m%20interested%20in%20learning%20more%20about%20Gentriiq%20Safaris%20%26%20Tours.%20Could%20you%20please%20provide%20me%20with%20more%20details%3F"
+            target="_blank">
+            <img src="{{ asset('assets/images/whatsapp.svg') }}" alt="WhatsApp" style="height: 40px">
+        </a>
+        <span class="text-success">Chat with us</span>
+    </div>
+
     <!-- end back-to-top -->
     <!-- end modal-shared -->
     <div class="modal-popup">
