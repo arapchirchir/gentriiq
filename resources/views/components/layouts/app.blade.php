@@ -142,6 +142,9 @@
                                                     <a href="{{ route('about.us') }}">About us</a>
                                                 </li>
                                                 <li>
+                                                    <a href="{{ route('our.blog') }}">Blogs</a>
+                                                </li>
+                                                <li>
                                                     <a href="{{ route('contact.us') }}">Contact us</a>
                                                 </li>
                                             @endguest
