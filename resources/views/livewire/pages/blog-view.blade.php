@@ -70,11 +70,11 @@
                             </p>
                             <div class="section-block"></div>
                             <p class="card-text py-3">
-                                {!! $post->content !!}
+                                {!! preg_replace('/<img(.*?)>/', '<img$1 class="img-fluid">', $post->content) !!}
                             </p>
                             <div class="section-block"></div>
                             <div class="post-tag-wrap d-flex align-items-center justify-content-between py-4">
-                                @if ($post->tags)
+                                @if (isset($post->tags) && count(json_decode($post->tags)) > 0)
                                     <ul class="tag-list">
                                         @foreach (json_decode($post->tags) as $tag)
                                             <li><a href="#">{{ $tag }}</a></li>
