@@ -49,7 +49,7 @@
                                         <i class="la la-photo"></i>
                                     </div>
                                     <div class="card-body">
-                                        @if ($blog->tags)
+                                        @if (isset($blog->tags) && count(json_decode($blog->tags)) > 0)
                                             <div class="post-categories">
                                                 <a href="#" class="badge">{{ json_decode($blog?->tags)[0] }}</a>
                                             </div>
