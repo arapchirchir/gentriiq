@@ -51,7 +51,7 @@
                                     <div class="card-body">
                                         @if ($blog->tags)
                                             <div class="post-categories">
-                                                <a href="#" class="badge">{{ json_decode($blog->tags)[0] }}</a>
+                                                <a href="#" class="badge">{{ json_decode($blog?->tags)[0] }}</a>
                                             </div>
                                         @endif
                                         <h3 class="card-title line-height-26">
