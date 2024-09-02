@@ -21,17 +21,17 @@ jobs:
 
             php artisan down
 
-            git reset --hard HEAD
+            # git reset --hard HEAD
 
             git pull origin master
 
             # composer update
 
-            # cp .envtemp .env
+            cp .envtemp .env
 
-            # php artisan migrate:fresh --seed
+            php artisan migrate
 
-            # cp .envlive .env
+            cp .envlive .env
 
             # php artisan storage:link
 

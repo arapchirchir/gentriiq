@@ -211,7 +211,8 @@
                             <!-- form-title-wrap -->
                             <div class="form-content">
                                 <div class="contact-form-action">
-                                    <form method="post">
+                                    <form wire:submit.prevent='commentFeedback' method="POST">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
@@ -219,7 +220,7 @@
                                                     <div class="form-group">
                                                         <span class="la la-user form-icon"></span>
                                                         <input class="form-control" type="text" name="text"
-                                                            placeholder="Your name">
+                                                            placeholder="Your name" wire:model.lazy='name'>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +230,7 @@
                                                     <div class="form-group">
                                                         <span class="la la-envelope-o form-icon"></span>
                                                         <input class="form-control" type="email" name="email"
-                                                            placeholder="Email address">
+                                                            placeholder="Email address" wire:model.lazy='email'>
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,7 +239,7 @@
                                                     <label class="label-text">Message</label>
                                                     <div class="form-group">
                                                         <span class="la la-pencil form-icon"></span>
-                                                        <textarea class="message-control form-control" name="message" placeholder="Write message"></textarea>
+                                                        <textarea class="message-control form-control" name="message" placeholder="Write message" wire:model.lazy='comment'></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,8 +247,8 @@
                                                 <div class="form-group">
                                                     <div class="custom-checkbox">
                                                         <input type="checkbox" class="form-check-input"
-                                                            id="chbyes">
-                                                        <label for="chbyes">Save my name, email, and website in this
+                                                            id="consent" wire:model.lazy='save_email_name_consent'>
+                                                        <label for="consent">Save my name, email, and website in this
                                                             browser for the next time I comment.</label>
                                                     </div>
                                                 </div>
@@ -255,7 +256,7 @@
 
                                             <div class="col-lg-12">
                                                 <div class="btn-box">
-                                                    <button type="button" class="theme-btn">
+                                                    <button type="submit" class="theme-btn">
                                                         Leave a Comment
                                                     </button>
                                                 </div>
@@ -408,3 +409,10 @@
         <!-- end container -->
     </section>
 </div>
+<script>
+    document.addEventListener('livewire:init', function() {
+        Livewire.on('notify', () => {
+            alert('Comment added successfully');
+        });
+    });
+</script>

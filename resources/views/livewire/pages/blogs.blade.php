@@ -104,18 +104,21 @@
                 @endif
             </div>
             <!-- end row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="btn-box mt-3 text-center">
-                        <button type="button" class="theme-btn" wire:click='loadMore' wire:loading.attr='disabled'>
-                            <i class="la la-refresh me-1"></i>Load More
-                        </button>
-                        <p class="font-size-13 pt-2">Showing 1 - 6 of 44 Posts</p>
+            @if ($totalPosts > 6)
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-box mt-3 text-center">
+                            <button type="button" class="theme-btn" wire:click='loadMore' wire:loading.attr='disabled'>
+                                <i class="la la-refresh me-1"></i>Load More
+                            </button>
+                            <p class="font-size-13 pt-2">Showing {{ count($blogs) }} - {{ count($blogs) }} of
+                                {{ $totalPosts }} Posts</p>
+                        </div>
+                        <!-- end btn-box -->
                     </div>
-                    <!-- end btn-box -->
+                    <!-- end col-lg-12 -->
                 </div>
-                <!-- end col-lg-12 -->
-            </div>
+            @endif
             <!-- end row -->
         </div>
         <!-- end container -->
