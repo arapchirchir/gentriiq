@@ -6,6 +6,7 @@ use App\Livewire\Customers\ViewBookingModal;
 use App\Models\UserBookings;
 use Livewire\Component;
 
+
 class Bookings extends Component
 {
     public function render()

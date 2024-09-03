@@ -52,6 +52,7 @@ class BookingConfirmationMail extends Mailable
                 'checkout_date' => $this->booking->checkout_date,
                 'total_adults' => $this->booking->total_adults,
                 'total_children' => $this->booking->total_children,
+                'trip_preference'=>$this->booking->trip_preference,
                 'total_price' => $this->booking->calculateTotalPrice()
 
 

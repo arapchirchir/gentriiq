@@ -23,10 +23,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <h6 class="text-warning fw-bold">You have selected : {{ $package['package_name'] ?? '' }}</h6>
-                        <p class="text-primary">Package price: ${{ $package['price'] ?? '' }}</p>
+                        <h6 class=" fw-bold text-success">You have selected : {{ $package['package_name'] ?? '' }}</h6>
+                        <p class=" text-success ">Package price: ${{ $package['price'] ?? '' }}</p>
                         <div class="d-flex justify-content-start align-items-start flex-column mb-3">
-                            <ul class="list-unstyled text-primary">
+                            <ul class="list-unstyled  text-success">
                                 <ol>No of Children : {{ $children }} </ol>
                                 <ol> No of Adults : {{ $adults }} </ol>
                                 <ol>{{ $booking_date }}</ol>
