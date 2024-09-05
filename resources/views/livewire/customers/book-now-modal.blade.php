@@ -8,7 +8,7 @@
     <!-- Modal -->
     <div class="modal fade" id="openBookingModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
         aria-labelledby="modalTitleId" aria-hidden="true" wire:ignore.self>
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header d-flex justify-content-center">
                     <div class="text-center w-100">
@@ -46,7 +46,7 @@
                                             <input type="text"
                                                 class="form-control @error('first_name') is-invalid @enderror shadow-none rounded-1"
                                                 id="name" wire:model="first_name" placeholder="Your first name"
-                                                required>
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -56,7 +56,7 @@
                                             <input type="text"
                                                 class="form-control @error('second_name') is-invalid @enderror shadow-none rounded-1"
                                                 id="second_name" wire:model="second_name" placeholder="Your second name"
-                                                required>
+                                                >
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                             <label for="email" class="label-text">Your email</label>
                                             <input type="email"
                                                 class="form-control @error('email') is-invalid @enderror shadow-none rounded-1"
-                                                id="email" wire:model="email" placeholder="Your email" required>
+                                                id="email" wire:model="email" placeholder="Your email" >
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -78,7 +78,7 @@
                                             <input type="text"
                                                 class="form-control @error('phone') is-invalid @enderror shadow-none rounded-1"
                                                 id="phone" wire:model="phone" placeholder="Your phone number"
-                                                required>
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -87,13 +87,23 @@
                                             <label for="trip_preferences" class="label-text">Your trip
                                                 preferences</label>
                                             <textarea class="form-control @error('trip_preferences') is-invalid @enderror shadow-none rounded-1"
-                                                id="trip_preferences" wire:model="trip_preferences" placeholder="Your trip preferences" required></textarea>
+                                                id="trip_preferences" wire:model="trip_preferences" placeholder="Your trip preferences" ></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-end">
-                                <button class="theme-btn text-center w-100 mb-2" type="submit">Submit</button>
+                            <div class="form-group me-2">
+                                <button class="theme-btn text-center w-100 mb-2 d-flex align-items-center justify-content-center" type="submit">
+                                    <span class="me-2">Submit</span>
+                                    <div wire:loading wire:target='CompleteBooking'>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="spinner-border text-primary spinner-border-sm" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </button>
+
                             </div>
                         </form>
                     </div>
@@ -104,8 +114,8 @@
     <!-- Second Modal -->
     <div class="modal fade" id="secondModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
         aria-labelledby="secondModalLabel" aria-hidden="true" wire:ignore.self>
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered rounded-1" role="document">
+            <div class="modal-content rounded-1 border-0">
                 <div class="modal-header d-flex justify-content-center">
                     <div class="text-center w-100">
                         <h5 class="modal-title fw-bolder" id="secondModalLabel">Booking Completed</h5>
